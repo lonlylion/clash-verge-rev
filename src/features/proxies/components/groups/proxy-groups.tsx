@@ -17,7 +17,7 @@ import { delayGroup, healthcheckProxyProvider } from "tauri-plugin-mihomo-api";
 
 import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
-import { BaseEmpty } from "@/components/base";
+import { EmptyState } from "@/components/ui";
 import { ProxyChain } from "@/features/proxies/components/groups/proxy-chain";
 import {
   ProxyGroupNavigator,
@@ -370,7 +370,7 @@ export const ProxyGroups = (props: Props) => {
   }, [renderList]);
 
   if (mode === "direct") {
-    return <BaseEmpty textKey="proxies.page.messages.directMode" />;
+    return <EmptyState textKey="proxies.page.messages.directMode" />;
   }
 
   if (isChainMode) {

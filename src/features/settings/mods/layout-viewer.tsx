@@ -17,7 +17,7 @@ import { exists } from "@tauri-apps/plugin-fs";
 import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch, TooltipIcon } from "@/components/ui";
+import { Modal, DialogRef, Switch, TooltipIcon } from "@/components/ui";
 import { DEFAULT_HOVER_DELAY } from "@/features/proxies/components/groups/proxy-group-navigator";
 import { useVerge } from "@/hooks/use-verge";
 import { useWindowDecorations } from "@/hooks/use-window";
@@ -110,7 +110,7 @@ export const LayoutViewer = forwardRef<DialogRef>((_, ref) => {
   };
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.components.verge.layout.title")}
       contentSx={{ width: 450 }}
@@ -535,7 +535,7 @@ export const LayoutViewer = forwardRef<DialogRef>((_, ref) => {
           </GuardState>
         </Item>
       </List>
-    </BaseDialog>
+    </Modal>
   );
 });
 

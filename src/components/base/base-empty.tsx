@@ -11,7 +11,7 @@ interface Props {
   extra?: ReactNode;
 }
 
-export const BaseEmpty = ({
+export const EmptyState = ({
   text,
   textKey = "shared.statuses.empty",
   extra,

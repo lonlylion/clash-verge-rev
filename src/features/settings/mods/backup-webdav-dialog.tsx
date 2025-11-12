@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, BaseLoadingOverlay } from "@/components/ui";
+import { Modal, LoadingOverlay } from "@/components/ui";
 import { listWebDavBackup } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 
@@ -60,7 +60,7 @@ export const BackupWebdavDialog = ({
   );
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.modals.backup.webdav.title")}
       contentSx={{ width: { xs: 360, sm: 520 } }}
@@ -70,7 +70,7 @@ export const BackupWebdavDialog = ({
       onClose={onClose}
     >
       <Box sx={{ position: "relative" }}>
-        <BaseLoadingOverlay isLoading={loading} />
+        <LoadingOverlay isLoading={loading} />
         <BackupConfigViewer
           setLoading={handleLoading}
           onBackupSuccess={async () => {
@@ -82,6 +82,6 @@ export const BackupWebdavDialog = ({
           onInit={refreshSilently}
         />
       </Box>
-    </BaseDialog>
+    </Modal>
   );
 };

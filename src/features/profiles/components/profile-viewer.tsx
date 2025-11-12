@@ -14,7 +14,7 @@ import { useEffect, useImperativeHandle, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, Switch } from "@/components/ui";
+import { Modal, Switch } from "@/components/ui";
 import { useProfiles } from "@/hooks/use-profiles";
 import { createProfile, patchProfile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
@@ -216,7 +216,7 @@ export function ProfileViewer({ onChange, ref }: ProfileViewerProps) {
   const isLocal = formType === "local";
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={
         openType === "new"
@@ -428,7 +428,7 @@ export function ProfileViewer({ onChange, ref }: ProfileViewerProps) {
           />
         </>
       )}
-    </BaseDialog>
+    </Modal>
   );
 }
 

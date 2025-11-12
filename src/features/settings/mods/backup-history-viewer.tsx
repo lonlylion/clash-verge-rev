@@ -29,7 +29,7 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, BaseLoadingOverlay } from "@/components/ui";
+import { Modal, LoadingOverlay } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import {
   deleteLocalBackup,
@@ -207,7 +207,7 @@ export const BackupHistoryViewer = ({
   };
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.modals.backup.history.title")}
       contentSx={{ width: 520 }}
@@ -217,7 +217,7 @@ export const BackupHistoryViewer = ({
       onClose={onClose}
     >
       <Box sx={{ position: "relative", minHeight: 320 }}>
-        <BaseLoadingOverlay isLoading={isBusy} />
+        <LoadingOverlay isLoading={isBusy} />
         <Stack spacing={2}>
           <Stack
             direction="row"
@@ -345,6 +345,6 @@ export const BackupHistoryViewer = ({
           )}
         </Stack>
       </Box>
-    </BaseDialog>
+    </Modal>
   );
 };

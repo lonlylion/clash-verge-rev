@@ -1,10 +1,10 @@
-import { Spinner } from "@/components/ui/spinner";
+import { Spinner } from "../primitives";
 
-interface BaseLoadingOverlayProps {
+interface LoadingOverlayProps {
   isLoading: boolean;
 }
 
-export const BaseLoadingOverlay = ({ isLoading }: BaseLoadingOverlayProps) => {
+export const LoadingOverlay = ({ isLoading }: LoadingOverlayProps) => {
   if (!isLoading) return null;
 
   return (

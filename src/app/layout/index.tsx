@@ -50,9 +50,8 @@ import { navItems } from "@/app/router";
 import iconDark from "@/assets/image/icon_dark.svg?react";
 import iconLight from "@/assets/image/icon_light.svg?react";
 import LogoSvg from "@/assets/image/logo.svg?react";
-import { BaseErrorBoundary } from "@/components/base";
-import { NoticeManager } from "@/components/base/NoticeManager";
 import { WindowControls } from "@/components/controller/window-controller";
+import { ErrorBoundary, NotificationStack } from "@/components/ui";
 import { useI18n } from "@/hooks/use-i18n";
 import { useVerge } from "@/hooks/use-verge";
 import { useWindowDecorations } from "@/hooks/use-window";
@@ -342,7 +341,7 @@ const Layout = () => {
     >
       <ThemeProvider theme={theme}>
         {/* 左侧底部窗口控制按钮 */}
-        <NoticeManager />
+        <NotificationStack />
         <div
           style={{
             animation: "fadeIn 0.5s",
@@ -527,9 +526,9 @@ const Layout = () => {
             <div className="layout-content__right">
               <div className="the-bar"></div>
               <div className="the-content">
-                <BaseErrorBoundary>
+                <ErrorBoundary>
                   <Outlet />
-                </BaseErrorBoundary>
+                </ErrorBoundary>
               </div>
             </div>
           </div>

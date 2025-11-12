@@ -18,7 +18,7 @@ import { useTranslation } from "react-i18next";
 import { mutate } from "swr";
 import { closeAllConnections, upgradeCore } from "tauri-plugin-mihomo-api";
 
-import { BaseDialog, DialogRef } from "@/components/ui";
+import { Modal, DialogRef } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { changeClashCore, restartCore } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
@@ -112,7 +112,7 @@ export function ClashCoreViewer({ ref }: { ref?: Ref<DialogRef> }) {
   });
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={
         <Box display="flex" justifyContent="space-between">
@@ -174,6 +174,6 @@ export function ClashCoreViewer({ ref }: { ref?: Ref<DialogRef> }) {
           </ListItemButton>
         ))}
       </List>
-    </BaseDialog>
+    </Modal>
   );
 }

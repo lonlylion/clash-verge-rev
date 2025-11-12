@@ -7,7 +7,7 @@ import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
-import { BaseEmpty } from "@/components/base";
+import { EmptyState } from "@/components/ui";
 import { Page, SearchBox, type SearchState } from "@/components/ui";
 import {
   Select,
@@ -15,7 +15,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui";
 import LogItem from "@/features/logs/components/log/log-item";
 import { useLogData } from "@/hooks/use-log-data";
 import { LogFilter, useClashLog } from "@/services/states";
@@ -116,7 +116,9 @@ const LogPage = () => {
       >
         <Select
           value={logState}
-          onValueChange={(value) => handleLogLevelChange(value as LogFilter)}
+          onValueChange={(value: string) =>
+            handleLogLevelChange(value as LogFilter)
+          }
         >
           <SelectTrigger className="w-[140px]">
             <SelectValue />
@@ -160,7 +162,7 @@ const LogPage = () => {
           followOutput={"smooth"}
         />
       ) : (
-        <BaseEmpty />
+        <EmptyState />
       )}
     </Page>
   );

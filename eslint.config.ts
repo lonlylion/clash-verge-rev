@@ -135,6 +135,61 @@ export default defineConfig([
     },
   },
   {
+    files: ["src/components/ui/composed/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: [
+                "../primitives/*",
+                "../primitives/**",
+                "@/components/ui/primitives",
+                "@/components/ui/primitives/*",
+                "@/components/ui/primitives/**",
+              ],
+              message:
+                "Import primitives via the '../primitives' barrel (or '@/components/ui').",
+            },
+            {
+              group: [
+                "../composed/*",
+                "../composed/**",
+                "@/components/ui/composed/*",
+                "@/components/ui/composed/**",
+              ],
+              message:
+                "Import composed helpers via the '../composed' barrel (or '@/components/ui').",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/components/ui/primitives/**/*.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: [
+                "../composed/*",
+                "../composed/**",
+                "@/components/ui/composed",
+                "@/components/ui/composed/*",
+                "@/components/ui/composed/**",
+              ],
+              message: "Primitives must not depend on composed components.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     files: ["scripts/**/*.{js,mjs,cjs}", "scripts-workflow/**/*.{js,mjs,cjs}"],
 
     languageOptions: {

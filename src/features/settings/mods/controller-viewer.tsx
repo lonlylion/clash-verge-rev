@@ -20,7 +20,7 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch } from "@/components/ui";
+import { Modal, DialogRef, Switch } from "@/components/ui";
 import { useClashInfo } from "@/hooks/use-clash";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
@@ -110,7 +110,7 @@ export function ControllerViewer({ ref }: { ref?: Ref<DialogRef> }) {
   );
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.sections.externalController.title")}
       contentSx={{ width: 400 }}
@@ -244,6 +244,6 @@ export function ControllerViewer({ ref }: { ref?: Ref<DialogRef> }) {
             : t("settings.sections.externalController.messages.secretCopied")}
         </Alert>
       </Snackbar>
-    </BaseDialog>
+    </Modal>
   );
 }

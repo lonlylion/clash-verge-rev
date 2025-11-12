@@ -1,7 +1,8 @@
 import React, { ReactNode } from "react";
 
-import { BaseErrorBoundary } from "@/components/base/base-error-boundary";
 import { cn } from "@/lib/utils";
+
+import { ErrorBoundary } from "../primitives";
 
 interface PageProps {
   title?: ReactNode;
@@ -18,7 +19,7 @@ export const Page = ({
   contentStyle,
   children,
 }: PageProps) => (
-  <BaseErrorBoundary>
+  <ErrorBoundary>
     <div className="flex flex-col gap-3">
       <header
         data-tauri-drag-region="true"
@@ -44,5 +45,5 @@ export const Page = ({
         </section>
       </div>
     </div>
-  </BaseErrorBoundary>
+  </ErrorBoundary>
 );

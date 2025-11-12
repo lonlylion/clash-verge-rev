@@ -24,7 +24,7 @@ import { useLockFn } from "ahooks";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseEmpty } from "@/components/base";
+import { EmptyState } from "@/components/ui";
 import { Page } from "@/components/ui";
 import { showNotice } from "@/services/noticeService";
 
@@ -301,7 +301,7 @@ const UnlockPage = () => {
             height: "50%",
           }}
         >
-          <BaseEmpty textKey="tests.unlock.page.empty" />
+          <EmptyState textKey="tests.unlock.page.empty" />
         </Box>
       ) : (
         <Grid container spacing={1.5} columns={{ xs: 1, sm: 2, md: 3 }}>

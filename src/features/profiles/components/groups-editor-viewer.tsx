@@ -49,7 +49,7 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
 import { Switch } from "@/components/ui";
-import { SearchBox } from "@/components/ui/search-box";
+import { SearchBox } from "@/components/ui";
 import { GroupItem } from "@/features/profiles/components/group-item";
 import {
   getNetworkInterfaces,

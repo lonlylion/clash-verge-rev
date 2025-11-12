@@ -8,7 +8,7 @@ import { useLockFn } from "ahooks";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseLoading } from "@/components/ui";
+import { LoadingIndicator } from "@/components/ui";
 import { useListen } from "@/hooks/use-listen";
 import { cmdTestDelay, downloadIconCache } from "@/services/cmds";
 import delayManager from "@/services/delay";
@@ -176,7 +176,7 @@ export const TestItem = ({
         >
           {delay === -2 && (
             <Widget>
-              <BaseLoading />
+              <LoadingIndicator />
             </Widget>
           )}
 

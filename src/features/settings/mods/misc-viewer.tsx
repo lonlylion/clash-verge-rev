@@ -16,7 +16,7 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch, TooltipIcon } from "@/components/ui";
+import { Modal, DialogRef, Switch, TooltipIcon } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
 
@@ -81,7 +81,7 @@ export const MiscViewer = forwardRef<DialogRef>((props, ref) => {
   });
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.modals.misc.title")}
       contentSx={{ width: 450 }}
@@ -390,6 +390,6 @@ export const MiscViewer = forwardRef<DialogRef>((props, ref) => {
           />
         </ListItem>
       </List>
-    </BaseDialog>
+    </Modal>
   );
 });

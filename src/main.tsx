@@ -14,7 +14,7 @@ import { MihomoWebSocket } from "tauri-plugin-mihomo-api";
 import { AppDataProvider } from "./app/providers/app-data-provider";
 import { WindowProvider } from "./app/providers/window";
 import { router } from "./app/router";
-import { BaseErrorBoundary } from "./components/base";
+import { ErrorBoundary } from "./components/ui";
 import { initializeLanguage } from "./services/i18n";
 import {
   LoadingCacheProvider,
@@ -60,13 +60,13 @@ const initializeApp = () => {
   root.render(
     <React.StrictMode>
       <ComposeContextProvider contexts={contexts}>
-        <BaseErrorBoundary>
+        <ErrorBoundary>
           <WindowProvider>
             <AppDataProvider>
               <RouterProvider router={router} />
             </AppDataProvider>
           </WindowProvider>
-        </BaseErrorBoundary>
+        </ErrorBoundary>
       </ComposeContextProvider>
     </React.StrictMode>,
   );

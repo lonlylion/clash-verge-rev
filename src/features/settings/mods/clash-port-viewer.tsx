@@ -12,7 +12,7 @@ import { useLockFn, useRequest } from "ahooks";
 import { ChangeEvent, forwardRef, useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, Switch } from "@/components/ui";
+import { Modal, Switch } from "@/components/ui";
 import { useClashInfo } from "@/hooks/use-clash";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
@@ -150,7 +150,7 @@ export const ClashPortViewer = forwardRef<ClashPortViewerRef>((_, ref) => {
   });
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.modals.clashPort.title")}
       contentSx={{
@@ -356,6 +356,6 @@ export const ClashPortViewer = forwardRef<ClashPortViewerRef>((_, ref) => {
           </ListItem>
         )}
       </List>
-    </BaseDialog>
+    </Modal>
   );
 });

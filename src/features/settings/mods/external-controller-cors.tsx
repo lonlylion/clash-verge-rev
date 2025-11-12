@@ -10,7 +10,7 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, Switch } from "@/components/ui";
+import { Modal, Switch } from "@/components/ui";
 import { useClash } from "@/hooks/use-clash";
 import { showNotice } from "@/services/noticeService";
 
@@ -187,7 +187,7 @@ export const HeaderConfiguration = forwardRef<ClashHeaderConfigingRef>(
     }, [corsConfig.allowOrigins]);
 
     return (
-      <BaseDialog
+      <Modal
         open={open}
         title={t("settings.sections.externalCors.title")}
         contentSx={{ width: 500 }}
@@ -286,7 +286,7 @@ export const HeaderConfiguration = forwardRef<ClashHeaderConfigingRef>(
             </div>
           </ListItem>
         </List>
-      </BaseDialog>
+      </Modal>
     );
   },
 );

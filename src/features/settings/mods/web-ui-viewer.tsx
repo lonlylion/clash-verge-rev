@@ -4,7 +4,7 @@ import type { Ref } from "react";
 import { useImperativeHandle, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, BaseEmpty, DialogRef } from "@/components/ui";
+import { Modal, EmptyState, DialogRef } from "@/components/ui";
 import { useClashInfo } from "@/hooks/use-clash";
 import { useVerge } from "@/hooks/use-verge";
 import { openWebUrl } from "@/services/cmds";
@@ -97,7 +97,7 @@ export function WebUIViewer({ ref }: { ref?: Ref<DialogRef> }) {
   });
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={
         <Box display="flex" justifyContent="space-between">
@@ -125,7 +125,7 @@ export function WebUIViewer({ ref }: { ref?: Ref<DialogRef> }) {
       onCancel={() => setOpen(false)}
     >
       {!editing && webUIList.length === 0 && (
-        <BaseEmpty
+        <EmptyState
           extra={
             <Typography mt={2} sx={{ fontSize: "12px" }}>
               {t("settings.modals.webUI.messages.placeholderInstruction")}
@@ -154,6 +154,6 @@ export function WebUIViewer({ ref }: { ref?: Ref<DialogRef> }) {
           onCancel={() => setEditing(false)}
         />
       )}
-    </BaseDialog>
+    </Modal>
   );
 }

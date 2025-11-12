@@ -12,7 +12,7 @@ import type { ReactNode, Ref } from "react";
 import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef } from "@/components/ui";
+import { Modal, DialogRef } from "@/components/ui";
 import { createLocalBackup, createWebdavBackup } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 
@@ -68,7 +68,7 @@ export function BackupViewer({ ref }: { ref?: Ref<DialogRef> }) {
   });
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.modals.backup.title")}
       contentSx={{ width: { xs: 360, sm: 520 } }}
@@ -208,6 +208,6 @@ export function BackupViewer({ ref }: { ref?: Ref<DialogRef> }) {
         onBackupSuccess={() => openHistory("webdav")}
         setBusy={(loading) => setBusyAction(loading ? "webdav" : null)}
       />
-    </BaseDialog>
+    </Modal>
   );
 }

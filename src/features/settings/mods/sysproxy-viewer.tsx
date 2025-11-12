@@ -26,7 +26,7 @@ import { getBaseConfig } from "tauri-plugin-mihomo-api";
 
 import { useAppData } from "@/app/providers/app-data-context";
 import {
-  BaseDialog,
+  Modal,
   DialogRef,
   Fieldset,
   Switch,
@@ -413,7 +413,7 @@ export const SysproxyViewer = forwardRef<DialogRef>((props, ref) => {
   });
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.modals.sysproxy.title")}
       contentSx={{ width: 450, maxHeight: 565 }}
@@ -646,7 +646,7 @@ export const SysproxyViewer = forwardRef<DialogRef>((props, ref) => {
           </ListItem>
         )}
       </List>
-    </BaseDialog>
+    </Modal>
   );
 });
 

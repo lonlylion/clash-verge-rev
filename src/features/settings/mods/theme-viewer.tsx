@@ -12,7 +12,7 @@ import { useLockFn } from "ahooks";
 import { useImperativeHandle, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef } from "@/components/ui";
+import { Modal, DialogRef } from "@/components/ui";
 import { EditorViewer } from "@/features/profiles/components/editor-viewer";
 import { useVerge } from "@/hooks/use-verge";
 import { defaultDarkTheme, defaultTheme } from "@/pages/_theme";
@@ -118,7 +118,7 @@ export function ThemeViewer(props: { ref?: React.Ref<DialogRef> }) {
   };
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.components.verge.theme.title")}
       okBtn={t("shared.actions.save")}
@@ -172,7 +172,7 @@ export function ThemeViewer(props: { ref?: React.Ref<DialogRef> }) {
           )}
         </Item>
       </List>
-    </BaseDialog>
+    </Modal>
   );
 }
 

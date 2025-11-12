@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
-import { BaseEmpty } from "@/components/base";
+import { EmptyState } from "@/components/ui";
 import { Page, SearchBox } from "@/components/ui";
 import {
   Select,
@@ -19,7 +19,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui";
 import {
   ConnectionDetail,
   ConnectionDetailRef,
@@ -268,7 +268,7 @@ const ConnectionsPage = () => {
       </Box>
 
       {!hasTableData ? (
-        <BaseEmpty />
+        <EmptyState />
       ) : isTableLayout ? (
         <ConnectionTable
           connections={filterConn}

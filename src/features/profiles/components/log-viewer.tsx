@@ -11,7 +11,7 @@ import {
 import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseEmpty } from "@/components/base";
+import { EmptyState } from "@/components/ui";
 
 interface Props {
   open: boolean;
@@ -57,7 +57,7 @@ export const LogViewer = (props: Props) => {
           </Fragment>
         ))}
 
-        {logInfo.length === 0 && <BaseEmpty />}
+        {logInfo.length === 0 && <EmptyState />}
       </DialogContent>
 
       <DialogActions>

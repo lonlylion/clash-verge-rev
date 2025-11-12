@@ -11,7 +11,7 @@ import type { Ref, ChangeEvent } from "react";
 import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch, TooltipIcon } from "@/components/ui";
+import { Modal, DialogRef, Switch, TooltipIcon } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { entry_lightweight_mode } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
@@ -50,7 +50,7 @@ export function LiteModeViewer({ ref }: { ref?: Ref<DialogRef> }) {
   });
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.modals.liteMode.title")}
       contentSx={{ width: 450 }}
@@ -145,6 +145,6 @@ export function LiteModeViewer({ ref }: { ref?: Ref<DialogRef> }) {
           </>
         )}
       </List>
-    </BaseDialog>
+    </Modal>
   );
 }

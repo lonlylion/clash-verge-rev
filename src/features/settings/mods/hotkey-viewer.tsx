@@ -8,7 +8,7 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch } from "@/components/ui";
+import { Modal, DialogRef, Switch } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
 
@@ -104,7 +104,7 @@ export const HotkeyViewer = forwardRef<DialogRef>((props, ref) => {
   });
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={t("settings.modals.hotkey.title")}
       contentSx={{ width: 450, maxHeight: 380 }}
@@ -136,6 +136,6 @@ export const HotkeyViewer = forwardRef<DialogRef>((props, ref) => {
           />
         </ItemWrapper>
       ))}
-    </BaseDialog>
+    </Modal>
   );
 });

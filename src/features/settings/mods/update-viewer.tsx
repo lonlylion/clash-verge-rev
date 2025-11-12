@@ -10,7 +10,7 @@ import ReactMarkdown from "react-markdown";
 import useSWR from "swr";
 
 import { portableFlag } from "@/app/layout";
-import { BaseDialog, DialogRef } from "@/components/ui";
+import { Modal, DialogRef } from "@/components/ui";
 import { useListen } from "@/hooks/use-listen";
 import { showNotice } from "@/services/noticeService";
 import { useSetUpdateState, useUpdateState } from "@/services/states";
@@ -109,7 +109,7 @@ export function UpdateViewer({ ref }: { ref?: Ref<DialogRef> }) {
   }, [currentProgressListener]);
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={
         <Box display="flex" justifyContent="space-between">
@@ -162,6 +162,6 @@ export function UpdateViewer({ ref }: { ref?: Ref<DialogRef> }) {
           sx={{ marginTop: "5px" }}
         />
       )}
-    </BaseDialog>
+    </Modal>
   );
 }

@@ -4,7 +4,7 @@ import { useLockFn } from "ahooks";
 import { useCallback, useEffect, useReducer } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseLoading } from "@/components/ui";
+import { LoadingIndicator } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import delayManager, { DelayUpdate } from "@/services/delay";
 
@@ -214,7 +214,7 @@ export const ProxyItemMini = (props: Props) => {
       >
         {delayValue === -2 && (
           <Widget>
-            <BaseLoading />
+            <LoadingIndicator />
           </Widget>
         )}
         {!proxy.provider && delayValue !== -2 && (

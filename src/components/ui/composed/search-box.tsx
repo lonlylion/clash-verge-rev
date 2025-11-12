@@ -11,7 +11,8 @@ import { useTranslation } from "react-i18next";
 import matchCaseIcon from "@/assets/image/component/match_case.svg?react";
 import matchWholeWordIcon from "@/assets/image/component/match_whole_word.svg?react";
 import useRegularExpressionIcon from "@/assets/image/component/use_regular_expression.svg?react";
-import { Input } from "@/components/ui/input";
+
+import { Input } from "../primitives";
 
 export type SearchState = {
   text: string;

@@ -12,7 +12,7 @@ import type { Ref, ChangeEvent } from "react";
 import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch } from "@/components/ui";
+import { Modal, DialogRef, Switch } from "@/components/ui";
 import { useClash } from "@/hooks/use-clash";
 import { enhanceProfiles } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
@@ -91,7 +91,7 @@ export function TunViewer({ ref }: { ref?: Ref<DialogRef> }) {
   });
 
   return (
-    <BaseDialog
+    <Modal
       open={open}
       title={
         <Box display="flex" justifyContent="space-between" gap={1}>
@@ -246,6 +246,6 @@ export function TunViewer({ ref }: { ref?: Ref<DialogRef> }) {
           />
         </ListItem>
       </List>
-    </BaseDialog>
+    </Modal>
   );
 }

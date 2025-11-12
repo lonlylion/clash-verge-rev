@@ -5,7 +5,7 @@ import { Virtuoso, VirtuosoHandle } from "react-virtuoso";
 
 import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
-import { BaseEmpty } from "@/components/base";
+import { EmptyState } from "@/components/ui";
 import { Page, SearchBox } from "@/components/ui";
 import { ProviderButton } from "@/features/rules/components/provider-button";
 import RuleItem from "@/features/rules/components/rule-item";
@@ -93,7 +93,7 @@ const RulesPage = () => {
           <ScrollTopButton onClick={scrollToTop} show={showScrollTop} />
         </>
       ) : (
-        <BaseEmpty />
+        <EmptyState />
       )}
     </Page>
   );

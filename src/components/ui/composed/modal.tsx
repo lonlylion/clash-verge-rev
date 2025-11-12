@@ -1,14 +1,15 @@
 import { type CSSProperties, ReactNode, useMemo } from "react";
 
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
 import {
+  Button,
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
+} from "../primitives";
 
 type ResponsiveValue<T> =
   | T
@@ -77,7 +78,7 @@ export interface DialogRef {
   close: () => void;
 }
 
-export const BaseDialog: React.FC<Props> = ({
+export const Modal: React.FC<Props> = ({
   open,
   title,
   children,
