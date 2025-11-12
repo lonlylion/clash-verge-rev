@@ -190,6 +190,24 @@ export default defineConfig([
     },
   },
   {
+    files: ["src/ui/**/*.{ts,tsx}"],
+    ignores: ["src/ui/legacy-mui/**/*"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["@mui/*", "@mui/**"],
+              message:
+                "Do not import MUI directly from new ui/. Use wrappers inside '@/ui/legacy-mui'.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     files: ["scripts/**/*.{js,mjs,cjs}", "scripts-workflow/**/*.{js,mjs,cjs}"],
 
     languageOptions: {

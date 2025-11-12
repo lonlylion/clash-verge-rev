@@ -18,6 +18,11 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["src/*"],
+      "@core/*": ["src/core/*"],
+      "@ui/*": ["src/ui/*"],
+      "@shared/*": ["src/shared/*"],
+      "@widgets/*": ["src/widgets/*"],
+      "@features/*": ["src/features/*"],
       "@root/*": ["./*"]
     }
   },
