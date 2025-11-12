@@ -8,8 +8,8 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
 import { BaseEmpty, BasePage } from "@/components/base";
-import { BaseSearchBox } from "@/components/base/base-search-box";
-import { SearchState } from "@/components/base/base-search-box";
+import { SearchBox } from "@/components/ui/search-box";
+import { SearchState } from "@/components/ui/search-box";
 import {
   Select,
   SelectContent,
@@ -140,7 +140,7 @@ const LogPage = () => {
             </SelectItem>
           </SelectContent>
         </Select>
-        <BaseSearchBox
+        <SearchBox
           onSearch={(matcher, state) => {
             setMatch(() => matcher);
             setSearchState(state);

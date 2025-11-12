@@ -43,7 +43,7 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
 import { Switch } from "@/components/base";
-import { BaseSearchBox } from "@/components/base/base-search-box";
+import { SearchBox } from "@/components/ui/search-box";
 import { RuleItem } from "@/features/profiles/components/rule-item";
 import { readProfileFile, saveProfileFile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
@@ -682,7 +682,7 @@ export const RulesEditorViewer = (props: Props) => {
                 padding: "0 10px",
               }}
             >
-              <BaseSearchBox
+              <SearchBox
                 onSearch={(match: (content: string) => boolean) =>
                   setMatch(() => match)
                 }

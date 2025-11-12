@@ -49,7 +49,7 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
 import { Switch } from "@/components/base";
-import { BaseSearchBox } from "@/components/base/base-search-box";
+import { SearchBox } from "@/components/ui/search-box";
 import { GroupItem } from "@/features/profiles/components/group-item";
 import {
   getNetworkInterfaces,
@@ -979,7 +979,7 @@ export const GroupsEditorViewer = (props: Props) => {
                 padding: "0 10px",
               }}
             >
-              <BaseSearchBox
+              <SearchBox
                 onSearch={(match: (content: string) => boolean) =>
                   setMatch(() => match)
                 }

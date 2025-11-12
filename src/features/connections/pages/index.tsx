@@ -12,7 +12,7 @@ import { Virtuoso } from "react-virtuoso";
 import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
 import { BaseEmpty, BasePage } from "@/components/base";
-import { BaseSearchBox } from "@/components/base/base-search-box";
+import { SearchBox } from "@/components/ui/search-box";
 import {
   Select,
   SelectContent,
@@ -263,7 +263,7 @@ const ConnectionsPage = () => {
             },
           }}
         >
-          <BaseSearchBox onSearch={handleSearch} />
+          <SearchBox onSearch={handleSearch} />
         </Box>
       </Box>
 

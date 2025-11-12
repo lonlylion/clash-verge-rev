@@ -6,7 +6,7 @@ import { Virtuoso, VirtuosoHandle } from "react-virtuoso";
 import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
 import { BaseEmpty, BasePage } from "@/components/base";
-import { BaseSearchBox } from "@/components/base/base-search-box";
+import { SearchBox } from "@/components/ui/search-box";
 import { ProviderButton } from "@/features/rules/components/provider-button";
 import RuleItem from "@/features/rules/components/rule-item";
 import { useVisibility } from "@/hooks/use-visibility";
@@ -71,7 +71,7 @@ const RulesPage = () => {
           alignItems: "center",
         }}
       >
-        <BaseSearchBox onSearch={(match) => setMatch(() => match)} />
+        <SearchBox onSearch={(match) => setMatch(() => match)} />
       </Box>
 
       {filteredRules && filteredRules.length > 0 ? (
