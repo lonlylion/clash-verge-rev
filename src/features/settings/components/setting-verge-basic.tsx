@@ -1,7 +1,9 @@
 import { ContentCopyRounded } from "@mui/icons-material";
 import { Button, Input, MenuItem, Select } from "@mui/material";
+import type { SelectChangeEvent } from "@mui/material/Select";
 import { open } from "@tauri-apps/plugin-dialog";
 import { useCallback, useRef } from "react";
+import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 
 import { navItems } from "@/app/router";
@@ -13,16 +15,16 @@ import { supportedLanguages } from "@/services/i18n";
 import { showNotice } from "@/services/noticeService";
 import getSystem from "@/utils/get-system";
 
-import { BackupViewer } from "./mods/backup-viewer";
-import { ConfigViewer } from "./mods/config-viewer";
-import { GuardState } from "./mods/guard-state";
-import { HotkeyViewer } from "./mods/hotkey-viewer";
-import { LayoutViewer } from "./mods/layout-viewer";
-import { MiscViewer } from "./mods/misc-viewer";
-import { SettingItem, SettingList } from "./mods/setting-comp";
-import { ThemeModeSwitch } from "./mods/theme-mode-switch";
-import { ThemeViewer } from "./mods/theme-viewer";
-import { UpdateViewer } from "./mods/update-viewer";
+import { BackupViewer } from "../mods/backup-viewer";
+import { ConfigViewer } from "../mods/config-viewer";
+import { GuardState } from "../mods/guard-state";
+import { HotkeyViewer } from "../mods/hotkey-viewer";
+import { LayoutViewer } from "../mods/layout-viewer";
+import { MiscViewer } from "../mods/misc-viewer";
+import { SettingItem, SettingList } from "../mods/setting-comp";
+import { ThemeModeSwitch } from "../mods/theme-mode-switch";
+import { ThemeViewer } from "../mods/theme-viewer";
+import { UpdateViewer } from "../mods/update-viewer";
 
 interface Props {
   onError?: (err: Error) => void;
@@ -74,6 +76,12 @@ const SettingVergeBasic = ({ onError }: Props) => {
     mutateVerge({ ...verge, ...patch }, false);
   };
 
+  const handleSelectFormat = (event: SelectChangeEvent<string>) =>
+    event.target.value;
+
+  const handleInputFormat = (event: ChangeEvent<HTMLInputElement>) =>
+    event.target.value;
+
   const onCopyClashEnv = useCallback(async () => {
     await copyClashEnv();
     showNotice.success(
@@ -96,9 +104,9 @@ const SettingVergeBasic = ({ onError }: Props) => {
         <GuardState
           value={language ?? "en"}
           onCatch={onError}
-          onFormat={(e: any) => e.target.value}
-          onChange={(e) => onChangeData({ language: e })}
-          onGuard={(e) => patchVerge({ language: e })}
+          onFormat={handleSelectFormat}
+          onChange={(value: string) => onChangeData({ language: value })}
+          onGuard={(value: string) => patchVerge({ language: value })}
         >
           <Select size="small" sx={{ width: 110, "> div": { py: "7.5px" } }}>
             {languageOptions.map(({ code, label }) => (
@@ -116,8 +124,12 @@ const SettingVergeBasic = ({ onError }: Props) => {
         <GuardState
           value={theme_mode}
           onCatch={onError}
-          onChange={(e) => onChangeData({ theme_mode: e })}
-          onGuard={(e) => patchVerge({ theme_mode: e })}
+          onChange={(value: IVergeConfig["theme_mode"]) =>
+            onChangeData({ theme_mode: value })
+          }
+          onGuard={(value: IVergeConfig["theme_mode"]) =>
+            patchVerge({ theme_mode: value })
+          }
         >
           <ThemeModeSwitch />
         </GuardState>
@@ -130,9 +142,9 @@ const SettingVergeBasic = ({ onError }: Props) => {
           <GuardState
             value={tray_event ?? "main_window"}
             onCatch={onError}
-            onFormat={(e: any) => e.target.value}
-            onChange={(e) => onChangeData({ tray_event: e })}
-            onGuard={(e) => patchVerge({ tray_event: e })}
+            onFormat={handleSelectFormat}
+            onChange={(value: string) => onChangeData({ tray_event: value })}
+            onGuard={(value: string) => patchVerge({ tray_event: value })}
           >
             <Select size="small" sx={{ width: 140, "> div": { py: "7.5px" } }}>
               <MenuItem value="main_window">
@@ -166,9 +178,9 @@ const SettingVergeBasic = ({ onError }: Props) => {
         <GuardState
           value={env_type ?? (OS === "windows" ? "powershell" : "bash")}
           onCatch={onError}
-          onFormat={(e: any) => e.target.value}
-          onChange={(e) => onChangeData({ env_type: e })}
-          onGuard={(e) => patchVerge({ env_type: e })}
+          onFormat={handleSelectFormat}
+          onChange={(value: string) => onChangeData({ env_type: value })}
+          onGuard={(value: string) => patchVerge({ env_type: value })}
         >
           <Select size="small" sx={{ width: 140, "> div": { py: "7.5px" } }}>
             <MenuItem value="bash">Bash</MenuItem>
@@ -186,9 +198,9 @@ const SettingVergeBasic = ({ onError }: Props) => {
         <GuardState
           value={start_page ?? "/"}
           onCatch={onError}
-          onFormat={(e: any) => e.target.value}
-          onChange={(e) => onChangeData({ start_page: e })}
-          onGuard={(e) => patchVerge({ start_page: e })}
+          onFormat={handleSelectFormat}
+          onChange={(value: string) => onChangeData({ start_page: value })}
+          onGuard={(value: string) => patchVerge({ start_page: value })}
         >
           <Select size="small" sx={{ width: 140, "> div": { py: "7.5px" } }}>
             {navItems.map((page: { label: string; path: string }) => {
@@ -208,9 +220,9 @@ const SettingVergeBasic = ({ onError }: Props) => {
         <GuardState
           value={startup_script ?? ""}
           onCatch={onError}
-          onFormat={(e: any) => e.target.value}
-          onChange={(e) => onChangeData({ startup_script: e })}
-          onGuard={(e) => patchVerge({ startup_script: e })}
+          onFormat={handleInputFormat}
+          onChange={(value: string) => onChangeData({ startup_script: value })}
+          onGuard={(value: string) => patchVerge({ startup_script: value })}
         >
           <Input
             value={startup_script}

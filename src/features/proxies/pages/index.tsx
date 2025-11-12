@@ -7,8 +7,8 @@ import useSWR from "swr";
 import { closeAllConnections, getBaseConfig } from "tauri-plugin-mihomo-api";
 
 import { BasePage } from "@/components/base";
-import { ProviderButton } from "@/components/proxy/provider-button";
-import { ProxyGroups } from "@/components/proxy/proxy-groups";
+import { ProxyGroups } from "@/features/proxies/components/groups/proxy-groups";
+import { ProviderButton } from "@/features/proxies/components/provider-button";
 import { useVerge } from "@/hooks/use-verge";
 import {
   getRuntimeProxyChainConfig,

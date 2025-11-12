@@ -17,20 +17,18 @@ import { delayGroup, healthcheckProxyProvider } from "tauri-plugin-mihomo-api";
 
 import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
+import { BaseEmpty } from "@/components/base";
+import { ProxyChain } from "@/features/proxies/components/groups/proxy-chain";
+import {
+  ProxyGroupNavigator,
+  DEFAULT_HOVER_DELAY,
+} from "@/features/proxies/components/groups/proxy-group-navigator";
+import { ProxyRender } from "@/features/proxies/components/items/proxy-render";
+import { useRenderList } from "@/features/proxies/hooks/use-render-list";
 import { useProxySelection } from "@/hooks/use-proxy-selection";
 import { useVerge } from "@/hooks/use-verge";
 import { updateProxyChainConfigInRuntime } from "@/services/cmds";
 import delayManager from "@/services/delay";
-
-import { BaseEmpty } from "../base";
-
-import { ProxyChain } from "./proxy-chain";
-import {
-  ProxyGroupNavigator,
-  DEFAULT_HOVER_DELAY,
-} from "./proxy-group-navigator";
-import { ProxyRender } from "./proxy-render";
-import { useRenderList } from "./use-render-list";
 
 interface Props {
   mode: string;

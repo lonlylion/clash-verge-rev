@@ -17,15 +17,14 @@ import { convertFileSrc } from "@tauri-apps/api/core";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { ProxyHead } from "@/features/proxies/components/items/proxy-head";
+import { ProxyItem } from "@/features/proxies/components/items/proxy-item";
+import { ProxyItemMini } from "@/features/proxies/components/items/proxy-item-mini";
+import { HeadState } from "@/features/proxies/hooks/use-head-state";
+import type { IRenderItem } from "@/features/proxies/hooks/use-render-list";
 import { useVerge } from "@/hooks/use-verge";
 import { downloadIconCache } from "@/services/cmds";
 import { useThemeMode } from "@/services/states";
-
-import { ProxyHead } from "./proxy-head";
-import { ProxyItem } from "./proxy-item";
-import { ProxyItemMini } from "./proxy-item-mini";
-import { HeadState } from "./use-head-state";
-import type { IRenderItem } from "./use-render-list";
 
 interface RenderProps {
   item: IRenderItem;

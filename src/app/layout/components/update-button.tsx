@@ -2,8 +2,8 @@ import { useRef } from "react";
 import useSWR from "swr";
 
 import { DialogRef } from "@/components/base";
-import { UpdateViewer } from "@/components/setting/mods/update-viewer";
 import { Button } from "@/components/ui/button";
+import { UpdateViewer } from "@/features/settings/mods/update-viewer";
 import { useVerge } from "@/hooks/use-verge";
 import { cn } from "@/lib/utils";
 import { checkUpdateSafe } from "@/services/update";

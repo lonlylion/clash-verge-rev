@@ -31,6 +31,7 @@ import { readTextFile } from "@tauri-apps/plugin-fs";
 import { useLockFn } from "ahooks";
 import { throttle } from "lodash-es";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { ChangeEvent, KeyboardEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router";
 import useSWR, { mutate } from "swr";
@@ -44,7 +45,7 @@ import {
   ProfileViewer,
   ProfileViewerRef,
 } from "@/components/profile/profile-viewer";
-import { ConfigViewer } from "@/components/setting/mods/config-viewer";
+import { ConfigViewer } from "@/features/settings/mods/config-viewer";
 import { useListen } from "@/hooks/use-listen";
 import { useProfiles } from "@/hooks/use-profiles";
 import {
@@ -928,8 +929,10 @@ const ProfilePage = () => {
         <BaseStyledTextField
           value={url}
           variant="outlined"
-          onChange={(e) => setUrl(e.target.value)}
-          onKeyDown={(event) => {
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setUrl(event.target.value)
+          }
+          onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
             if (event.key !== "Enter" || event.nativeEvent.isComposing) {
               return;
             }

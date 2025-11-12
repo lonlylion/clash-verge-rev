@@ -3,6 +3,7 @@ import { MenuItem, Select, TextField, Typography } from "@mui/material";
 import { invoke } from "@tauri-apps/api/core";
 import { useLockFn } from "ahooks";
 import { useRef, useState } from "react";
+import type { ChangeEvent, MouseEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { updateGeo } from "tauri-plugin-mihomo-api";
 
@@ -15,15 +16,15 @@ import { showNotice } from "@/services/noticeService";
 import { useClashLog } from "@/services/states";
 import getSystem from "@/utils/get-system";
 
-import { ClashCoreViewer } from "./mods/clash-core-viewer";
-import { ClashPortViewer } from "./mods/clash-port-viewer";
-import { ControllerViewer } from "./mods/controller-viewer";
-import { DnsViewer } from "./mods/dns-viewer";
-import { HeaderConfiguration } from "./mods/external-controller-cors";
-import { GuardState } from "./mods/guard-state";
-import { NetworkInterfaceViewer } from "./mods/network-interface-viewer";
-import { SettingItem, SettingList } from "./mods/setting-comp";
-import { WebUIViewer } from "./mods/web-ui-viewer";
+import { ClashCoreViewer } from "../mods/clash-core-viewer";
+import { ClashPortViewer } from "../mods/clash-port-viewer";
+import { ControllerViewer } from "../mods/controller-viewer";
+import { DnsViewer } from "../mods/dns-viewer";
+import { HeaderConfiguration } from "../mods/external-controller-cors";
+import { GuardState } from "../mods/guard-state";
+import { NetworkInterfaceViewer } from "../mods/network-interface-viewer";
+import { SettingItem, SettingList } from "../mods/setting-comp";
+import { WebUIViewer } from "../mods/web-ui-viewer";
 
 const isWIN = getSystem() === "windows";
 
@@ -60,7 +61,10 @@ const SettingClash = ({ onError }: Props) => {
   const dnsRef = useRef<DialogRef>(null);
   const corsRef = useRef<DialogRef>(null);
 
-  const onSwitchFormat = (_e: any, value: boolean) => value;
+  const onSwitchFormat = (
+    _event: ChangeEvent<HTMLInputElement>,
+    value: boolean,
+  ) => value;
   const onChangeData = (patch: Partial<IConfigData>) => {
     mutateClash((old) => ({ ...old!, ...patch }), false);
   };
@@ -122,8 +126,8 @@ const SettingClash = ({ onError }: Props) => {
           valueProps="checked"
           onCatch={onError}
           onFormat={onSwitchFormat}
-          onChange={(e) => onChangeData({ "allow-lan": e })}
-          onGuard={(e) => patchClash({ "allow-lan": e })}
+          onChange={(value: boolean) => onChangeData({ "allow-lan": value })}
+          onGuard={(value: boolean) => patchClash({ "allow-lan": value })}
         >
           <Switch edge="end" />
         </GuardState>
@@ -141,7 +145,9 @@ const SettingClash = ({ onError }: Props) => {
         <Switch
           edge="end"
           checked={dnsSettingsEnabled}
-          onChange={(_, checked) => handleDnsToggle(checked)}
+          onChange={(_event: ChangeEvent<HTMLInputElement>, checked: boolean) =>
+            handleDnsToggle(checked)
+          }
         />
       </SettingItem>
 
@@ -151,8 +157,8 @@ const SettingClash = ({ onError }: Props) => {
           valueProps="checked"
           onCatch={onError}
           onFormat={onSwitchFormat}
-          onChange={(e) => onChangeData({ ipv6: e })}
-          onGuard={(e) => patchClash({ ipv6: e })}
+          onChange={(value: boolean) => onChangeData({ ipv6: value })}
+          onGuard={(value: boolean) => patchClash({ ipv6: value })}
         >
           <Switch edge="end" />
         </GuardState>
@@ -172,8 +178,10 @@ const SettingClash = ({ onError }: Props) => {
           valueProps="checked"
           onCatch={onError}
           onFormat={onSwitchFormat}
-          onChange={(e) => onChangeData({ "unified-delay": e })}
-          onGuard={(e) => patchClash({ "unified-delay": e })}
+          onChange={(value: boolean) =>
+            onChangeData({ "unified-delay": value })
+          }
+          onGuard={(value: boolean) => patchClash({ "unified-delay": value })}
         >
           <Switch edge="end" />
         </GuardState>
@@ -191,11 +199,13 @@ const SettingClash = ({ onError }: Props) => {
         <GuardState
           value={logLevel === "warn" ? "warning" : (logLevel ?? "info")}
           onCatch={onError}
-          onFormat={(e: any) => e.target.value}
-          onChange={(e) => onChangeData({ "log-level": e })}
-          onGuard={(e) => {
-            setClashLog((pre: any) => ({ ...pre, logLevel: e }));
-            return patchClash({ "log-level": e });
+          onFormat={(event: ChangeEvent<HTMLInputElement>) =>
+            event.target.value
+          }
+          onChange={(value: string) => onChangeData({ "log-level": value })}
+          onGuard={(value: string) => {
+            setClashLog((pre: any) => ({ ...pre, logLevel: value }));
+            return patchClash({ "log-level": value });
           }}
         >
           <Select size="small" sx={{ width: 100, "> div": { py: "7.5px" } }}>
@@ -225,9 +235,9 @@ const SettingClash = ({ onError }: Props) => {
           size="small"
           value={verge_mixed_port ?? 7897}
           sx={{ width: 100, input: { py: "7.5px", cursor: "pointer" } }}
-          onClick={(e) => {
+          onClick={(event: MouseEvent<HTMLInputElement>) => {
             portRef.current?.open();
-            (e.target as any).blur();
+            (event.target as HTMLInputElement).blur();
           }}
         />
       </SettingItem>

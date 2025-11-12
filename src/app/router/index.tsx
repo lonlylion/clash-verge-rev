@@ -17,13 +17,13 @@ import ProxiesSvg from "@/assets/image/itemicon/proxies.svg?react";
 import RulesSvg from "@/assets/image/itemicon/rules.svg?react";
 import SettingsSvg from "@/assets/image/itemicon/settings.svg?react";
 import UnlockSvg from "@/assets/image/itemicon/unlock.svg?react";
+import ProxiesPage from "@/features/proxies/pages";
+import SettingsPage from "@/features/settings/pages";
 import ConnectionsPage from "@/pages/connections";
 import HomePage from "@/pages/home";
 import LogsPage from "@/pages/logs";
 import ProfilesPage from "@/pages/profiles";
-import ProxiesPage from "@/pages/proxies";
 import RulesPage from "@/pages/rules";
-import SettingsPage from "@/pages/settings";
 import UnlockPage from "@/pages/unlock";
 
 export const navItems = [

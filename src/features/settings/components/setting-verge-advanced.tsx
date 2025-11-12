@@ -17,15 +17,15 @@ import { showNotice } from "@/services/noticeService";
 import { checkUpdateSafe as checkUpdate } from "@/services/update";
 import { version } from "@root/package.json";
 
-import { BackupViewer } from "./mods/backup-viewer";
-import { ConfigViewer } from "./mods/config-viewer";
-import { HotkeyViewer } from "./mods/hotkey-viewer";
-import { LayoutViewer } from "./mods/layout-viewer";
-import { LiteModeViewer } from "./mods/lite-mode-viewer";
-import { MiscViewer } from "./mods/misc-viewer";
-import { SettingItem, SettingList } from "./mods/setting-comp";
-import { ThemeViewer } from "./mods/theme-viewer";
-import { UpdateViewer } from "./mods/update-viewer";
+import { BackupViewer } from "../mods/backup-viewer";
+import { ConfigViewer } from "../mods/config-viewer";
+import { HotkeyViewer } from "../mods/hotkey-viewer";
+import { LayoutViewer } from "../mods/layout-viewer";
+import { LiteModeViewer } from "../mods/lite-mode-viewer";
+import { MiscViewer } from "../mods/misc-viewer";
+import { SettingItem, SettingList } from "../mods/setting-comp";
+import { ThemeViewer } from "../mods/theme-viewer";
+import { UpdateViewer } from "../mods/update-viewer";
 
 interface Props {
   onError?: (err: Error) => void;

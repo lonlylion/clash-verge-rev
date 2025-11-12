@@ -1,6 +1,7 @@
 import { WarningRounded } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
 import React, { useRef } from "react";
+import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { mutate } from "swr";
 
@@ -11,10 +12,10 @@ import { useSystemState } from "@/hooks/use-system-state";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
 
-import { GuardState } from "./mods/guard-state";
-import { SettingList, SettingItem } from "./mods/setting-comp";
-import { SysproxyViewer } from "./mods/sysproxy-viewer";
-import { TunViewer } from "./mods/tun-viewer";
+import { GuardState } from "../mods/guard-state";
+import { SettingList, SettingItem } from "../mods/setting-comp";
+import { SysproxyViewer } from "../mods/sysproxy-viewer";
+import { TunViewer } from "../mods/tun-viewer";
 
 interface Props {
   onError?: (err: Error) => void;
@@ -33,7 +34,7 @@ const SettingSystem = ({ onError }: Props) => {
   const tunRef = useRef<DialogRef>(null);
 
   const onSwitchFormat = (
-    _e: React.ChangeEvent<HTMLInputElement>,
+    _event: ChangeEvent<HTMLInputElement>,
     value: boolean,
   ) => value;
   const onChangeData = (patch: Partial<IVergeConfig>) => {
@@ -72,11 +73,11 @@ const SettingSystem = ({ onError }: Props) => {
           valueProps="checked"
           onCatch={onError}
           onFormat={onSwitchFormat}
-          onChange={(e) => {
+          onChange={(value: boolean) => {
             // 移除管理员模式检查提示
-            onChangeData({ enable_auto_launch: e });
+            onChangeData({ enable_auto_launch: value });
           }}
-          onGuard={async (e) => {
+          onGuard={async (value: boolean) => {
             if (isAdminMode) {
               showNotice.info(
                 "settings.sections.system.tooltips.autoLaunchAdmin",
@@ -85,13 +86,13 @@ const SettingSystem = ({ onError }: Props) => {
 
             try {
               // 先触发UI更新立即看到反馈
-              onChangeData({ enable_auto_launch: e });
-              await patchVerge({ enable_auto_launch: e });
+              onChangeData({ enable_auto_launch: value });
+              await patchVerge({ enable_auto_launch: value });
               await mutate("getAutoLaunchStatus");
               return Promise.resolve();
             } catch (error) {
               // 如果出错，恢复原始状态
-              onChangeData({ enable_auto_launch: !e });
+              onChangeData({ enable_auto_launch: !value });
               return Promise.reject(error);
             }
           }}
@@ -114,8 +115,12 @@ const SettingSystem = ({ onError }: Props) => {
           valueProps="checked"
           onCatch={onError}
           onFormat={onSwitchFormat}
-          onChange={(e) => onChangeData({ enable_silent_start: e })}
-          onGuard={(e) => patchVerge({ enable_silent_start: e })}
+          onChange={(value: boolean) =>
+            onChangeData({ enable_silent_start: value })
+          }
+          onGuard={(value: boolean) =>
+            patchVerge({ enable_silent_start: value })
+          }
         >
           <Switch edge="end" />
         </GuardState>

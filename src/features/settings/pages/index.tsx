@@ -4,10 +4,10 @@ import { useLockFn } from "ahooks";
 import { useTranslation } from "react-i18next";
 
 import { BasePage } from "@/components/base";
-import SettingClash from "@/components/setting/setting-clash";
-import SettingSystem from "@/components/setting/setting-system";
-import SettingVergeAdvanced from "@/components/setting/setting-verge-advanced";
-import SettingVergeBasic from "@/components/setting/setting-verge-basic";
+import SettingClash from "@/features/settings/components/setting-clash";
+import SettingSystem from "@/features/settings/components/setting-system";
+import SettingVergeAdvanced from "@/features/settings/components/setting-verge-advanced";
+import SettingVergeBasic from "@/features/settings/components/setting-verge-basic";
 import { openWebUrl } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { useThemeMode } from "@/services/states";

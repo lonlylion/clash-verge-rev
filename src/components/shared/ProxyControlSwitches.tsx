@@ -9,13 +9,14 @@ import {
 import { Box, Typography, alpha, useTheme } from "@mui/material";
 import { useLockFn } from "ahooks";
 import React, { useCallback, useRef } from "react";
+import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 
 import { DialogRef, Switch } from "@/components/base";
 import { TooltipIcon } from "@/components/base/base-tooltip-icon";
-import { GuardState } from "@/components/setting/mods/guard-state";
-import { SysproxyViewer } from "@/components/setting/mods/sysproxy-viewer";
-import { TunViewer } from "@/components/setting/mods/tun-viewer";
+import { GuardState } from "@/features/settings/mods/guard-state";
+import { SysproxyViewer } from "@/features/settings/mods/sysproxy-viewer";
+import { TunViewer } from "@/features/settings/mods/tun-viewer";
 import { useSystemProxyState } from "@/hooks/use-system-proxy-state";
 import { useSystemState } from "@/hooks/use-system-state";
 import { useVerge } from "@/hooks/use-verge";
@@ -97,7 +98,9 @@ const SwitchRow = ({
         value={active}
         valueProps="checked"
         onCatch={onError}
-        onFormat={(_, v) => v}
+        onFormat={(_event: ChangeEvent<HTMLInputElement>, next: boolean) =>
+          next
+        }
         onGuard={onToggle}
       >
         <Switch edge="end" disabled={disabled} />

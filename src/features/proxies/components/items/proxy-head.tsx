@@ -15,11 +15,10 @@ import { Box, IconButton, TextField, SxProps } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import type { ProxySortType } from "@/features/proxies/hooks/use-filter-sort";
+import type { HeadState } from "@/features/proxies/hooks/use-head-state";
 import { useVerge } from "@/hooks/use-verge";
 import delayManager from "@/services/delay";
-
-import type { ProxySortType } from "./use-filter-sort";
-import type { HeadState } from "./use-head-state";
 
 interface Props {
   sx?: SxProps;
