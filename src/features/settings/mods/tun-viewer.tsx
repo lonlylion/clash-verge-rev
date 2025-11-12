@@ -8,11 +8,11 @@ import {
   Typography,
 } from "@mui/material";
 import { useLockFn } from "ahooks";
-import type { Ref } from "react";
+import type { Ref, ChangeEvent } from "react";
 import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch } from "@/components/base";
+import { BaseDialog, DialogRef, Switch } from "@/components/ui";
 import { useClash } from "@/hooks/use-clash";
 import { enhanceProfiles } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
@@ -175,7 +175,10 @@ export function TunViewer({ ref }: { ref?: Ref<DialogRef> }) {
           <Switch
             edge="end"
             checked={values.autoRoute}
-            onChange={(_, c) => setValues((v) => ({ ...v, autoRoute: c }))}
+            onChange={(
+              event: ChangeEvent<HTMLInputElement>,
+              checked: boolean,
+            ) => setValues((v) => ({ ...v, autoRoute: checked }))}
           />
         </ListItem>
 
@@ -184,7 +187,10 @@ export function TunViewer({ ref }: { ref?: Ref<DialogRef> }) {
           <Switch
             edge="end"
             checked={values.strictRoute}
-            onChange={(_, c) => setValues((v) => ({ ...v, strictRoute: c }))}
+            onChange={(
+              event: ChangeEvent<HTMLInputElement>,
+              checked: boolean,
+            ) => setValues((v) => ({ ...v, strictRoute: checked }))}
           />
         </ListItem>
 
@@ -195,9 +201,10 @@ export function TunViewer({ ref }: { ref?: Ref<DialogRef> }) {
           <Switch
             edge="end"
             checked={values.autoDetectInterface}
-            onChange={(_, c) =>
-              setValues((v) => ({ ...v, autoDetectInterface: c }))
-            }
+            onChange={(
+              event: ChangeEvent<HTMLInputElement>,
+              checked: boolean,
+            ) => setValues((v) => ({ ...v, autoDetectInterface: checked }))}
           />
         </ListItem>
 

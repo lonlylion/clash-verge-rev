@@ -13,7 +13,7 @@ import {
 import { useLockFn } from "ahooks";
 import { useCallback, useEffect, useReducer } from "react";
 
-import { BaseLoading } from "@/components/base";
+import { BaseLoading } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import delayManager, { DelayUpdate } from "@/services/delay";
 

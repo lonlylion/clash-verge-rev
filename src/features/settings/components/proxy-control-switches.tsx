@@ -12,8 +12,7 @@ import React, { useCallback, useRef } from "react";
 import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 
-import { DialogRef, Switch } from "@/components/base";
-import { TooltipIcon } from "@/components/base/base-tooltip-icon";
+import { DialogRef, Switch, TooltipIcon } from "@/components/ui";
 import { GuardState } from "@/features/settings/mods/guard-state";
 import { SysproxyViewer } from "@/features/settings/mods/sysproxy-viewer";
 import { TunViewer } from "@/features/settings/mods/tun-viewer";
@@ -89,7 +88,7 @@ const SwitchRow = ({
           title={infoTitle}
           icon={SettingsRounded}
           onClick={onInfoClick}
-          sx={{ ml: 1 }}
+          className="ml-2"
         />
         {extraIcons}
       </Box>
@@ -201,16 +200,15 @@ const ProxyControlSwitches = ({
                       "settings.sections.proxyControl.tooltips.tunUnavailable",
                     )}
                     icon={WarningRounded}
-                    sx={{ color: "warning.main", ml: 1 }}
+                    className="ml-2 text-[var(--verge-color-warning)]"
                   />
                   <TooltipIcon
                     title={t(
                       "settings.sections.proxyControl.actions.installService",
                     )}
                     icon={BuildRounded}
-                    color="primary"
                     onClick={onInstallService}
-                    sx={{ ml: 1 }}
+                    className="ml-2 text-[var(--verge-color-primary)]"
                   />
                 </>
               )}
@@ -220,9 +218,8 @@ const ProxyControlSwitches = ({
                     "settings.sections.proxyControl.actions.uninstallService",
                   )}
                   icon={DeleteForeverRounded}
-                  color="secondary"
                   onClick={onUninstallService}
-                  sx={{ ml: 1 }}
+                  className="ml-2 text-[var(--verge-color-secondary)]"
                 />
               )}
             </>

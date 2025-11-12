@@ -42,8 +42,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
-import { Switch } from "@/components/base";
-import { SearchBox } from "@/components/ui/search-box";
+import { Switch, SearchBox } from "@/components/ui";
 import { RuleItem } from "@/features/profiles/components/rule-item";
 import { readProfileFile, saveProfileFile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";

@@ -8,11 +8,15 @@ import {
   TextField,
 } from "@mui/material";
 import { useLockFn } from "ahooks";
-import { forwardRef, useImperativeHandle, useState } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  type ChangeEvent,
+} from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch } from "@/components/base";
-import { TooltipIcon } from "@/components/base/base-tooltip-icon";
+import { BaseDialog, DialogRef, Switch, TooltipIcon } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
 
@@ -187,9 +191,10 @@ export const MiscViewer = forwardRef<DialogRef>((props, ref) => {
           <Switch
             edge="end"
             checked={values.autoCloseConnection}
-            onChange={(_, c) =>
-              setValues((v) => ({ ...v, autoCloseConnection: c }))
-            }
+            onChange={(
+              _event: ChangeEvent<HTMLInputElement>,
+              checked: boolean,
+            ) => setValues((v) => ({ ...v, autoCloseConnection: checked }))}
             sx={{ marginLeft: "auto" }}
           />
         </ListItem>
@@ -201,9 +206,10 @@ export const MiscViewer = forwardRef<DialogRef>((props, ref) => {
           <Switch
             edge="end"
             checked={values.autoCheckUpdate}
-            onChange={(_, c) =>
-              setValues((v) => ({ ...v, autoCheckUpdate: c }))
-            }
+            onChange={(
+              _event: ChangeEvent<HTMLInputElement>,
+              checked: boolean,
+            ) => setValues((v) => ({ ...v, autoCheckUpdate: checked }))}
           />
         </ListItem>
 
@@ -219,9 +225,10 @@ export const MiscViewer = forwardRef<DialogRef>((props, ref) => {
           <Switch
             edge="end"
             checked={values.enableBuiltinEnhanced}
-            onChange={(_, c) =>
-              setValues((v) => ({ ...v, enableBuiltinEnhanced: c }))
-            }
+            onChange={(
+              _event: ChangeEvent<HTMLInputElement>,
+              checked: boolean,
+            ) => setValues((v) => ({ ...v, enableBuiltinEnhanced: checked }))}
             sx={{ marginLeft: "auto" }}
           />
         </ListItem>
@@ -317,8 +324,11 @@ export const MiscViewer = forwardRef<DialogRef>((props, ref) => {
           <Switch
             edge="end"
             checked={values.enableAutoDelayDetection}
-            onChange={(_, c) =>
-              setValues((v) => ({ ...v, enableAutoDelayDetection: c }))
+            onChange={(
+              event: ChangeEvent<HTMLInputElement>,
+              checked: boolean,
+            ) =>
+              setValues((v) => ({ ...v, enableAutoDelayDetection: checked }))
             }
             sx={{ marginLeft: "auto" }}
           />

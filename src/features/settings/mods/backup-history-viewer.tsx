@@ -20,10 +20,16 @@ import { useLockFn } from "ahooks";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type SyntheticEvent,
+} from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, BaseLoadingOverlay } from "@/components/base";
+import { BaseDialog, BaseLoadingOverlay } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import {
   deleteLocalBackup,
@@ -220,7 +226,7 @@ export const BackupHistoryViewer = ({
           >
             <Tabs
               value={source}
-              onChange={(_, val) => {
+              onChange={(_event: SyntheticEvent, val: string) => {
                 if (isBusy) return;
                 onSourceChange(val as BackupSource);
                 onPageChange(0);

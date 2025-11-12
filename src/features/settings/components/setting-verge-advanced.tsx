@@ -3,8 +3,8 @@ import { Typography } from "@mui/material";
 import { useCallback, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import { DialogRef } from "@/components/base";
-import { TooltipIcon } from "@/components/base/base-tooltip-icon";
+import { DialogRef } from "@/components/ui";
+import { TooltipIcon } from "@/components/ui";
 import {
   exitApp,
   exportDiagnosticInfo,

@@ -37,8 +37,7 @@ import { useLocation } from "react-router";
 import useSWR, { mutate } from "swr";
 import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
-import { DialogRef } from "@/components/base";
-import { Input, Page } from "@/components/ui";
+import { Input, Page, DialogRef } from "@/components/ui";
 import { ProfileItem } from "@/features/profiles/components/profile-item";
 import { ProfileMore } from "@/features/profiles/components/profile-more";
 import {

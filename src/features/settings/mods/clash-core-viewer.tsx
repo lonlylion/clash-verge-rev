@@ -18,7 +18,7 @@ import { useTranslation } from "react-i18next";
 import { mutate } from "swr";
 import { closeAllConnections, upgradeCore } from "tauri-plugin-mihomo-api";
 
-import { BaseDialog, DialogRef } from "@/components/base";
+import { BaseDialog, DialogRef } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { changeClashCore, restartCore } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";

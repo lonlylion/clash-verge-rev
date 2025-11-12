@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, BaseLoadingOverlay } from "@/components/base";
+import { BaseDialog, BaseLoadingOverlay } from "@/components/ui";
 import { listWebDavBackup } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 

@@ -18,15 +18,20 @@ import {
   useMemo,
   useRef,
   useState,
+  type ChangeEvent,
 } from "react";
 import { useTranslation } from "react-i18next";
 import useSWR, { mutate } from "swr";
 import { getBaseConfig } from "tauri-plugin-mihomo-api";
 
 import { useAppData } from "@/app/providers/app-data-context";
-import { BaseDialog, DialogRef, Switch } from "@/components/base";
-import { BaseFieldset } from "@/components/base/base-fieldset";
-import { TooltipIcon } from "@/components/base/base-tooltip-icon";
+import {
+  BaseDialog,
+  DialogRef,
+  Fieldset,
+  Switch,
+  TooltipIcon,
+} from "@/components/ui";
 import { EditorViewer } from "@/features/profiles/components/editor-viewer";
 import { useVerge } from "@/hooks/use-verge";
 import {
@@ -421,7 +426,7 @@ export const SysproxyViewer = forwardRef<DialogRef>((props, ref) => {
       disableOk={saving}
     >
       <List>
-        <BaseFieldset
+        <Fieldset
           label={t("settings.modals.sysproxy.fieldsets.currentStatus")}
           padding="15px 10px"
         >
@@ -457,7 +462,7 @@ export const SysproxyViewer = forwardRef<DialogRef>((props, ref) => {
               </Typography>
             </FlexBox>
           )}
-        </BaseFieldset>
+        </Fieldset>
         <ListItem sx={{ padding: "5px 2px" }}>
           <ListItemText
             primary={t("settings.modals.sysproxy.fields.proxyHost")}
@@ -471,13 +476,13 @@ export const SysproxyViewer = forwardRef<DialogRef>((props, ref) => {
             renderInput={(params) => (
               <TextField {...params} placeholder="127.0.0.1" size="small" />
             )}
-            onChange={(_, newValue) => {
+            onChange={(_event, newValue) => {
               setValue((v) => ({
                 ...v,
                 proxy_host: newValue || "127.0.0.1",
               }));
             }}
-            onInputChange={(_, newInputValue) => {
+            onInputChange={(_event, newInputValue) => {
               setValue((v) => ({
                 ...v,
                 proxy_host: newInputValue || "127.0.0.1",
@@ -493,7 +498,10 @@ export const SysproxyViewer = forwardRef<DialogRef>((props, ref) => {
             edge="end"
             disabled={!enabled}
             checked={value.pac}
-            onChange={(_, e) => setValue((v) => ({ ...v, pac: e }))}
+            onChange={(
+              event: ChangeEvent<HTMLInputElement>,
+              checked: boolean,
+            ) => setValue((v) => ({ ...v, pac: checked }))}
           />
         </ListItem>
 
@@ -510,7 +518,10 @@ export const SysproxyViewer = forwardRef<DialogRef>((props, ref) => {
             edge="end"
             disabled={!enabled}
             checked={value.guard}
-            onChange={(_, e) => setValue((v) => ({ ...v, guard: e }))}
+            onChange={(
+              event: ChangeEvent<HTMLInputElement>,
+              checked: boolean,
+            ) => setValue((v) => ({ ...v, guard: checked }))}
             sx={{ marginLeft: "auto" }}
           />
         </ListItem>
@@ -548,12 +559,15 @@ export const SysproxyViewer = forwardRef<DialogRef>((props, ref) => {
               edge="end"
               disabled={!enabled}
               checked={value.use_default}
-              onChange={(_, e) =>
+              onChange={(
+                event: ChangeEvent<HTMLInputElement>,
+                checked: boolean,
+              ) =>
                 setValue((v) => ({
                   ...v,
-                  use_default: e,
+                  use_default: checked,
                   // 当取消选择use_default且当前bypass为空时，填充默认值
-                  bypass: !e && !v.bypass ? defaultBypass() : v.bypass,
+                  bypass: !checked && !v.bypass ? defaultBypass() : v.bypass,
                 }))
               }
             />

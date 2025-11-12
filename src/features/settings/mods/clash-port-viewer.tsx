@@ -9,10 +9,10 @@ import {
   TextField,
 } from "@mui/material";
 import { useLockFn, useRequest } from "ahooks";
-import { forwardRef, useImperativeHandle, useState } from "react";
+import { ChangeEvent, forwardRef, useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, Switch } from "@/components/base";
+import { BaseDialog, Switch } from "@/components/ui";
 import { useClashInfo } from "@/hooks/use-clash";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
@@ -232,7 +232,10 @@ export const ClashPortViewer = forwardRef<ClashPortViewerRef>((_, ref) => {
             <Switch
               size="small"
               checked={socksEnabled}
-              onChange={(_, c) => setSocksEnabled(c)}
+              onChange={(
+                _event: ChangeEvent<HTMLInputElement>,
+                checked: boolean,
+              ) => setSocksEnabled(checked)}
               sx={{ ml: 0.5 }}
             />
           </div>
@@ -266,7 +269,10 @@ export const ClashPortViewer = forwardRef<ClashPortViewerRef>((_, ref) => {
             <Switch
               size="small"
               checked={httpEnabled}
-              onChange={(_, c) => setHttpEnabled(c)}
+              onChange={(
+                _event: ChangeEvent<HTMLInputElement>,
+                checked: boolean,
+              ) => setHttpEnabled(checked)}
               sx={{ ml: 0.5 }}
             />
           </div>
@@ -301,7 +307,10 @@ export const ClashPortViewer = forwardRef<ClashPortViewerRef>((_, ref) => {
               <Switch
                 size="small"
                 checked={redirEnabled}
-                onChange={(_, c) => setRedirEnabled(c)}
+                onChange={(
+                  _event: ChangeEvent<HTMLInputElement>,
+                  checked: boolean,
+                ) => setRedirEnabled(checked)}
                 sx={{ ml: 0.5 }}
               />
             </div>
@@ -337,7 +346,10 @@ export const ClashPortViewer = forwardRef<ClashPortViewerRef>((_, ref) => {
               <Switch
                 size="small"
                 checked={tproxyEnabled}
-                onChange={(_, c) => setTproxyEnabled(c)}
+                onChange={(
+                  _event: ChangeEvent<HTMLInputElement>,
+                  checked: boolean,
+                ) => setTproxyEnabled(checked)}
                 sx={{ ml: 0.5 }}
               />
             </div>

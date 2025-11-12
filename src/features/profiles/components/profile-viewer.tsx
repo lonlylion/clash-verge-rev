@@ -14,7 +14,7 @@ import { useEffect, useImperativeHandle, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, Switch } from "@/components/base";
+import { BaseDialog, Switch } from "@/components/ui";
 import { useProfiles } from "@/hooks/use-profiles";
 import { createProfile, patchProfile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
@@ -362,12 +362,16 @@ export function ProfileViewer({ onChange, ref }: ProfileViewerProps) {
           <Controller
             name="option.with_proxy"
             control={control}
-            render={({ field }) => (
+            render={({ field: { value, onChange, ...field } }) => (
               <StyledBox>
                 <InputLabel>
                   {t("profiles.modals.profileForm.fields.useSystemProxy")}
                 </InputLabel>
-                <Switch checked={field.value} {...field} color="primary" />
+                <Switch
+                  checked={Boolean(value)}
+                  onCheckedChange={(checked: boolean) => onChange(checked)}
+                  {...field}
+                />
               </StyledBox>
             )}
           />
@@ -375,12 +379,16 @@ export function ProfileViewer({ onChange, ref }: ProfileViewerProps) {
           <Controller
             name="option.self_proxy"
             control={control}
-            render={({ field }) => (
+            render={({ field: { value, onChange, ...field } }) => (
               <StyledBox>
                 <InputLabel>
                   {t("profiles.modals.profileForm.fields.useClashProxy")}
                 </InputLabel>
-                <Switch checked={field.value} {...field} color="primary" />
+                <Switch
+                  checked={Boolean(value)}
+                  onCheckedChange={(checked: boolean) => onChange(checked)}
+                  {...field}
+                />
               </StyledBox>
             )}
           />
@@ -388,12 +396,16 @@ export function ProfileViewer({ onChange, ref }: ProfileViewerProps) {
           <Controller
             name="option.danger_accept_invalid_certs"
             control={control}
-            render={({ field }) => (
+            render={({ field: { value, onChange, ...field } }) => (
               <StyledBox>
                 <InputLabel>
                   {t("profiles.modals.profileForm.fields.acceptInvalidCerts")}
                 </InputLabel>
-                <Switch checked={field.value} {...field} color="primary" />
+                <Switch
+                  checked={Boolean(value)}
+                  onCheckedChange={(checked: boolean) => onChange(checked)}
+                  {...field}
+                />
               </StyledBox>
             )}
           />
@@ -401,12 +413,16 @@ export function ProfileViewer({ onChange, ref }: ProfileViewerProps) {
           <Controller
             name="option.allow_auto_update"
             control={control}
-            render={({ field }) => (
+            render={({ field: { value, onChange, ...field } }) => (
               <StyledBox>
                 <InputLabel>
                   {t("profiles.modals.profileForm.fields.allowAutoUpdate")}
                 </InputLabel>
-                <Switch checked={field.value} {...field} color="primary" />
+                <Switch
+                  checked={Boolean(value)}
+                  onCheckedChange={(checked: boolean) => onChange(checked)}
+                  {...field}
+                />
               </StyledBox>
             )}
           />

@@ -7,8 +7,8 @@ import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 
 import { navItems } from "@/app/router";
-import { DialogRef } from "@/components/base";
-import { TooltipIcon } from "@/components/base/base-tooltip-icon";
+import { DialogRef } from "@/components/ui";
+import { TooltipIcon } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { copyClashEnv } from "@/services/cmds";
 import { supportedLanguages } from "@/services/i18n";

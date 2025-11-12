@@ -12,7 +12,7 @@ import type { ReactNode, Ref } from "react";
 import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef } from "@/components/base";
+import { BaseDialog, DialogRef } from "@/components/ui";
 import { createLocalBackup, createWebdavBackup } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 

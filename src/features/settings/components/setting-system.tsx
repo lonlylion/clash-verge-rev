@@ -5,8 +5,8 @@ import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { mutate } from "swr";
 
-import { DialogRef, Switch } from "@/components/base";
-import { TooltipIcon } from "@/components/base/base-tooltip-icon";
+import { DialogRef, Switch } from "@/components/ui";
+import { TooltipIcon } from "@/components/ui";
 import ProxyControlSwitches from "@/features/settings/components/proxy-control-switches";
 import { useSystemState } from "@/hooks/use-system-state";
 import { useVerge } from "@/hooks/use-verge";

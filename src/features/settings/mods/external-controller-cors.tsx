@@ -1,10 +1,16 @@
 import { Delete as DeleteIcon } from "@mui/icons-material";
 import { Box, Button, Divider, List, ListItem, TextField } from "@mui/material";
 import { useLockFn, useRequest } from "ahooks";
-import { forwardRef, useImperativeHandle, useMemo, useState } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useMemo,
+  useState,
+  type ChangeEvent,
+} from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, Switch } from "@/components/base";
+import { BaseDialog, Switch } from "@/components/ui";
 import { useClash } from "@/hooks/use-clash";
 import { showNotice } from "@/services/noticeService";
 
@@ -205,12 +211,10 @@ export const HeaderConfiguration = forwardRef<ClashHeaderConfigingRef>(
               <Switch
                 edge="end"
                 checked={corsConfig.allowPrivateNetwork}
-                onChange={(e) =>
-                  handleCorsConfigChange(
-                    "allowPrivateNetwork",
-                    e.target.checked,
-                  )
-                }
+                onChange={(
+                  event: ChangeEvent<HTMLInputElement>,
+                  checked: boolean,
+                ) => handleCorsConfigChange("allowPrivateNetwork", checked)}
               />
             </Box>
           </ListItem>

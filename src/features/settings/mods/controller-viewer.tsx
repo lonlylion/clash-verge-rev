@@ -12,10 +12,15 @@ import {
   Tooltip,
 } from "@mui/material";
 import { useLockFn } from "ahooks";
-import { useImperativeHandle, useState, type Ref } from "react";
+import {
+  useImperativeHandle,
+  useState,
+  type Ref,
+  type ChangeEvent,
+} from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch } from "@/components/base";
+import { BaseDialog, DialogRef, Switch } from "@/components/ui";
 import { useClashInfo } from "@/hooks/use-clash";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
@@ -138,7 +143,9 @@ export function ControllerViewer({ ref }: { ref?: Ref<DialogRef> }) {
           <Switch
             edge="end"
             checked={enableController}
-            onChange={(e) => setEnableController(e.target.checked)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              setEnableController(event.target.checked)
+            }
             disabled={isSaving}
           />
         </ListItem>

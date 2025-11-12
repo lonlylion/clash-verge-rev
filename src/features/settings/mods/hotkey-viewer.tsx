@@ -1,9 +1,14 @@
 import { styled, Typography } from "@mui/material";
 import { useLockFn } from "ahooks";
-import { forwardRef, useImperativeHandle, useState } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  type ChangeEvent,
+} from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseDialog, DialogRef, Switch } from "@/components/base";
+import { BaseDialog, DialogRef, Switch } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
 
@@ -116,7 +121,9 @@ export const HotkeyViewer = forwardRef<DialogRef>((props, ref) => {
         <Switch
           edge="end"
           checked={enableGlobalHotkey}
-          onChange={(e) => setEnableGlobalHotkey(e.target.checked)}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setEnableGlobalHotkey(event.target.checked)
+          }
         />
       </ItemWrapper>
 

@@ -6,7 +6,7 @@ import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useSWR from "swr";
 
-import { BaseDialog, DialogRef } from "@/components/base";
+import { BaseDialog, DialogRef } from "@/components/ui";
 import { getNetworkInterfacesInfo } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 

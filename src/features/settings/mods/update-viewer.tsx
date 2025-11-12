@@ -10,7 +10,7 @@ import ReactMarkdown from "react-markdown";
 import useSWR from "swr";
 
 import { portableFlag } from "@/app/layout";
-import { BaseDialog, DialogRef } from "@/components/base";
+import { BaseDialog, DialogRef } from "@/components/ui";
 import { useListen } from "@/hooks/use-listen";
 import { showNotice } from "@/services/noticeService";
 import { useSetUpdateState, useUpdateState } from "@/services/states";

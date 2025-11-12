@@ -9,7 +9,7 @@ import { useLockFn } from "ahooks";
 import { Fragment, useMemo, useState, type ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Switch } from "@/components/base";
+import { Switch } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
 
