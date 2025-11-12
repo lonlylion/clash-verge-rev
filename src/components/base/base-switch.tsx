@@ -1,58 +1,127 @@
-import { styled } from "@mui/material/styles";
-import { default as MuiSwitch, SwitchProps } from "@mui/material/Switch";
+import {
+  type CSSProperties,
+  type ChangeEvent,
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  forwardRef,
+} from "react";
 
-export const Switch = styled((props: SwitchProps) => (
-  <MuiSwitch
-    focusVisibleClassName=".Mui-focusVisible"
-    disableRipple
-    {...props}
-  />
-))(({ theme }) => ({
-  width: 42,
-  height: 26,
-  padding: 0,
-  marginRight: 1,
-  "& .MuiSwitch-switchBase": {
-    padding: 0,
-    margin: 2,
-    transitionDuration: "300ms",
-    "&.Mui-checked": {
-      transform: "translateX(16px)",
-      color: "#fff",
-      "& + .MuiSwitch-track": {
-        backgroundColor: theme.palette.primary.main,
-        opacity: 1,
-        border: 0,
-      },
-      "&.Mui-disabled + .MuiSwitch-track": {
-        opacity: 0.5,
-      },
+import { Switch as UiSwitch } from "@/components/ui/switch";
+import { cn } from "@/lib/utils";
+
+type UiSwitchProps = ComponentPropsWithoutRef<typeof UiSwitch>;
+
+export interface BaseSwitchProps
+  extends Omit<
+    UiSwitchProps,
+    "onCheckedChange" | "onChange" | "value" | "style"
+  > {
+  edge?: "start" | "end";
+  value?: any;
+  size?: string;
+  color?: string;
+  sx?: Record<string, any>;
+  style?: CSSProperties;
+  onChange?: (event: ChangeEvent<HTMLInputElement>, checked: boolean) => void;
+  onCheckedChange?: (checked: boolean) => void;
+}
+
+const spacingMap: Record<string, keyof CSSProperties> = {
+  ml: "marginLeft",
+  mr: "marginRight",
+  mt: "marginTop",
+  mb: "marginBottom",
+  mx: "marginLeft",
+  my: "marginTop",
+};
+
+const SPACING_UNIT = 8;
+
+const convertSx = (sx?: Record<string, any>): CSSProperties | undefined => {
+  if (!sx) return undefined;
+  const style: CSSProperties = {};
+  Object.entries(sx).forEach(([key, value]) => {
+    if (value === undefined || value === null) return;
+    if (key === "mx") {
+      const resolved =
+        typeof value === "number"
+          ? `${value * SPACING_UNIT}px`
+          : (value as any);
+      style.marginLeft = resolved;
+      style.marginRight = resolved;
+      return;
+    }
+    if (key === "my") {
+      const resolved =
+        typeof value === "number"
+          ? `${value * SPACING_UNIT}px`
+          : (value as any);
+      style.marginTop = resolved;
+      style.marginBottom = resolved;
+      return;
+    }
+    if (key in spacingMap) {
+      style[spacingMap[key]] =
+        typeof value === "number"
+          ? `${value * SPACING_UNIT}px`
+          : (value as any);
+      return;
+    }
+    style[key as keyof CSSProperties] = value as any;
+  });
+  return style;
+};
+
+export const Switch = forwardRef<ElementRef<typeof UiSwitch>, BaseSwitchProps>(
+  (
+    {
+      edge,
+      className,
+      onChange,
+      onCheckedChange,
+      value,
+      size: _size,
+      color: _color,
+      sx,
+      style,
+      ...props
     },
-    "&.Mui-focusVisible .MuiSwitch-thumb": {
-      color: "#33cf4d",
-      border: "6px solid #fff",
-    },
-    "&.Mui-disabled .MuiSwitch-thumb": {
-      color:
-        theme.palette.mode === "light"
-          ? theme.palette.grey[100]
-          : theme.palette.grey[600],
-    },
-    "&.Mui-disabled + .MuiSwitch-track": {
-      opacity: theme.palette.mode === "light" ? 0.7 : 0.3,
-    },
+    ref,
+  ) => {
+    const handleCheckedChange = (checked: boolean) => {
+      if (onChange) {
+        const syntheticEvent = {
+          target: { checked },
+          currentTarget: { checked },
+        } as ChangeEvent<HTMLInputElement>;
+        onChange(syntheticEvent, checked);
+      }
+      onCheckedChange?.(checked);
+    };
+
+    return (
+      <UiSwitch
+        ref={ref}
+        className={cn(
+          edge === "end" ? "ml-auto" : edge === "start" ? "mr-auto" : "",
+          className,
+        )}
+        value={
+          typeof value === "string" || typeof value === "number"
+            ? value
+            : value !== undefined
+              ? String(value)
+              : undefined
+        }
+        style={{
+          ...style,
+          ...convertSx(sx),
+        }}
+        {...props}
+        onCheckedChange={handleCheckedChange}
+      />
+    );
   },
-  "& .MuiSwitch-thumb": {
-    boxSizing: "border-box",
-    width: 22,
-    height: 22,
-  },
-  "& .MuiSwitch-track": {
-    borderRadius: 26 / 2,
-    backgroundColor: theme.palette.mode === "light" ? "#BBBBBB" : "#39393D",
-    opacity: 1,
-    transition: theme.transitions.create(["background-color"], {
-      duration: 500,
-    }),
-  },
-}));
+);
+
+Switch.displayName = "BaseSwitch";

@@ -1,10 +1,11 @@
-import { Button } from "@mui/material";
 import { useRef } from "react";
 import useSWR from "swr";
 
 import { DialogRef } from "@/components/base";
 import { UpdateViewer } from "@/components/setting/mods/update-viewer";
+import { Button } from "@/components/ui/button";
 import { useVerge } from "@/hooks/use-verge";
+import { cn } from "@/lib/utils";
 import { checkUpdateSafe } from "@/services/update";
 
 interface Props {
@@ -35,10 +36,9 @@ export const UpdateButton = (props: Props) => {
       <UpdateViewer ref={viewerRef} />
 
       <Button
-        color="error"
-        variant="contained"
-        size="small"
-        className={className}
+        variant="destructive"
+        size="sm"
+        className={cn("px-3 py-1 text-xs font-semibold", className)}
         onClick={() => viewerRef.current?.open()}
       >
         New

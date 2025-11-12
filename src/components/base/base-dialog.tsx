@@ -1,14 +1,58 @@
-import { LoadingButton } from "@mui/lab";
+import { type CSSProperties, ReactNode, useMemo } from "react";
+
+import { Button } from "@/components/ui/button";
 import {
-  Button,
   Dialog,
-  DialogActions,
   DialogContent,
+  DialogFooter,
+  DialogHeader,
   DialogTitle,
-  type SxProps,
-  type Theme,
-} from "@mui/material";
-import { ReactNode } from "react";
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+
+type ResponsiveValue<T> =
+  | T
+  | {
+      xs?: T;
+      sm?: T;
+      md?: T;
+      lg?: T;
+      xl?: T;
+      default?: T;
+    };
+
+type ContentSx =
+  | Record<string, ResponsiveValue<string | number>>
+  | Array<Record<string, ResponsiveValue<string | number>>>;
+
+const resolveResponsiveValue = (value: ResponsiveValue<string | number>) => {
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    return (
+      value.sm ?? value.md ?? value.lg ?? value.xl ?? value.xs ?? value.default
+    );
+  }
+  return value;
+};
+
+const resolveContentSx = (sx?: ContentSx): CSSProperties | undefined => {
+  if (!sx) return undefined;
+
+  const entries = Array.isArray(sx) ? sx : [sx];
+  const style: CSSProperties = {};
+
+  entries.forEach((entry) => {
+    Object.entries(entry || {}).forEach(([key, value]) => {
+      const resolved = resolveResponsiveValue(
+        value as ResponsiveValue<string | number>,
+      );
+      if (resolved !== undefined) {
+        (style as any)[key] = resolved;
+      }
+    });
+  });
+
+  return style;
+};
 
 interface Props {
   title: ReactNode;
@@ -18,7 +62,9 @@ interface Props {
   disableOk?: boolean;
   disableCancel?: boolean;
   disableFooter?: boolean;
-  contentSx?: SxProps<Theme>;
+  contentSx?: ContentSx;
+  contentClassName?: string;
+  contentStyle?: React.CSSProperties;
   children?: ReactNode;
   loading?: boolean;
   onOk?: () => void;
@@ -38,6 +84,8 @@ export const BaseDialog: React.FC<Props> = ({
   okBtn,
   cancelBtn,
   contentSx,
+  contentStyle,
+  contentClassName,
   disableCancel,
   disableOk,
   disableFooter,
@@ -46,26 +94,57 @@ export const BaseDialog: React.FC<Props> = ({
   onCancel,
   onClose,
 }) => {
+  const mergedStyle = useMemo(() => {
+    const sxStyle = resolveContentSx(contentSx);
+    return { ...sxStyle, ...contentStyle };
+  }, [contentSx, contentStyle]);
+
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) {
+      onClose?.();
+    }
+  };
+
   return (
-    <Dialog open={open} onClose={onClose}>
-      <DialogTitle>{title}</DialogTitle>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
+      <DialogContent
+        className={cn(
+          "max-h-[85vh] overflow-y-auto bg-[var(--verge-color-surface)] text-[var(--verge-color-foreground)]",
+          contentClassName,
+        )}
+        style={mergedStyle}
+      >
+        <DialogHeader>
+          <DialogTitle>{title}</DialogTitle>
+        </DialogHeader>
 
-      <DialogContent sx={contentSx}>{children}</DialogContent>
+        <div className="space-y-4">{children}</div>
 
-      {!disableFooter && (
-        <DialogActions>
-          {!disableCancel && (
-            <Button variant="outlined" onClick={onCancel}>
-              {cancelBtn}
-            </Button>
-          )}
-          {!disableOk && (
-            <LoadingButton loading={loading} variant="contained" onClick={onOk}>
-              {okBtn}
-            </LoadingButton>
-          )}
-        </DialogActions>
-      )}
+        {!disableFooter && (
+          <DialogFooter className="pt-2">
+            {!disableCancel && (
+              <Button
+                variant="outline"
+                onClick={onCancel}
+                type="button"
+                className="min-w-[96px]"
+              >
+                {cancelBtn ?? "Cancel"}
+              </Button>
+            )}
+            {!disableOk && (
+              <Button
+                type="button"
+                onClick={onOk}
+                isLoading={loading}
+                className="min-w-[96px]"
+              >
+                {okBtn ?? "Confirm"}
+              </Button>
+            )}
+          </DialogFooter>
+        )}
+      </DialogContent>
     </Dialog>
   );
 };
