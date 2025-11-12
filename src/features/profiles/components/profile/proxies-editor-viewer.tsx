@@ -40,14 +40,13 @@ import {
 import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
-import { ProxyItem } from "@/components/profile/proxy-item";
+import { BaseSearchBox } from "@/components/base/base-search-box";
+import { ProxyItem } from "@/features/profiles/components/profile/proxy-item";
 import { readProfileFile, saveProfileFile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { useThemeMode } from "@/services/states";
 import getSystem from "@/utils/get-system";
 import parseUri from "@/utils/uri-parser";
-
-import { BaseSearchBox } from "../base/base-search-box";
 
 interface Props {
   profileUid: string;
@@ -361,7 +360,11 @@ export const ProxiesEditorViewer = (props: Props) => {
                 padding: "0 10px",
               }}
             >
-              <BaseSearchBox onSearch={(match) => setMatch(() => match)} />
+              <BaseSearchBox
+                onSearch={(match: (content: string) => boolean) =>
+                  setMatch(() => match)
+                }
+              />
               <Virtuoso
                 style={{ height: "calc(100% - 24px)", marginTop: "8px" }}
                 totalCount={

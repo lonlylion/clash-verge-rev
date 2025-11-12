@@ -27,7 +27,7 @@ import { useAppData } from "@/app/providers/app-data-context";
 import { BaseDialog, DialogRef, Switch } from "@/components/base";
 import { BaseFieldset } from "@/components/base/base-fieldset";
 import { TooltipIcon } from "@/components/base/base-tooltip-icon";
-import { EditorViewer } from "@/components/profile/editor-viewer";
+import { EditorViewer } from "@/features/profiles/components/profile/editor-viewer";
 import { useVerge } from "@/hooks/use-verge";
 import {
   getAutotemProxy,

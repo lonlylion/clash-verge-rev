@@ -39,12 +39,12 @@ import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
 import { BasePage, DialogRef } from "@/components/base";
 import { BaseStyledTextField } from "@/components/base/base-styled-text-field";
-import { ProfileItem } from "@/components/profile/profile-item";
-import { ProfileMore } from "@/components/profile/profile-more";
+import { ProfileItem } from "@/features/profiles/components/profile/profile-item";
+import { ProfileMore } from "@/features/profiles/components/profile/profile-more";
 import {
   ProfileViewer,
   ProfileViewerRef,
-} from "@/components/profile/profile-viewer";
+} from "@/features/profiles/components/profile/profile-viewer";
 import { ConfigViewer } from "@/features/settings/mods/config-viewer";
 import { useListen } from "@/hooks/use-listen";
 import { useProfiles } from "@/hooks/use-profiles";

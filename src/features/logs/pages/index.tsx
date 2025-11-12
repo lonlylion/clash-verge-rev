@@ -11,7 +11,7 @@ import { BaseEmpty, BasePage } from "@/components/base";
 import { BaseSearchBox } from "@/components/base/base-search-box";
 import { SearchState } from "@/components/base/base-search-box";
 import { BaseStyledSelect } from "@/components/base/base-styled-select";
-import LogItem from "@/components/log/log-item";
+import LogItem from "@/features/logs/components/log/log-item";
 import { useLogData } from "@/hooks/use-log-data";
 import { LogFilter, useClashLog } from "@/services/states";
 

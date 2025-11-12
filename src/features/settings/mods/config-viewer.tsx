@@ -3,7 +3,7 @@ import { forwardRef, useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { DialogRef } from "@/components/base";
-import { EditorViewer } from "@/components/profile/editor-viewer";
+import { EditorViewer } from "@/features/profiles/components/profile/editor-viewer";
 import { getRuntimeYaml } from "@/services/cmds";
 
 export const ConfigViewer = forwardRef<DialogRef>((_, ref) => {

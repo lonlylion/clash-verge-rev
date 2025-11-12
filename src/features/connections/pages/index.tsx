@@ -17,9 +17,9 @@ import { BaseStyledSelect } from "@/components/base/base-styled-select";
 import {
   ConnectionDetail,
   ConnectionDetailRef,
-} from "@/components/connection/connection-detail";
-import { ConnectionItem } from "@/components/connection/connection-item";
-import { ConnectionTable } from "@/components/connection/connection-table";
+} from "@/features/connections/components/connection-detail";
+import { ConnectionItem } from "@/features/connections/components/connection-item";
+import { ConnectionTable } from "@/features/connections/components/connection-table";
 import { useConnectionData } from "@/hooks/use-connection-data";
 import { useVisibility } from "@/hooks/use-visibility";
 import { useConnectionSetting } from "@/services/states";
@@ -261,7 +261,9 @@ const ConnectionsPage = () => {
       ) : isTableLayout ? (
         <ConnectionTable
           connections={filterConn}
-          onShowDetail={(detail) => detailRef.current?.open(detail)}
+          onShowDetail={(detail: IConnectionsItem) =>
+            detailRef.current?.open(detail)
+          }
           columnManagerOpen={isTableLayout && isColumnManagerOpen}
           onOpenColumnManager={() => setIsColumnManagerOpen(true)}
           onCloseColumnManager={() => setIsColumnManagerOpen(false)}

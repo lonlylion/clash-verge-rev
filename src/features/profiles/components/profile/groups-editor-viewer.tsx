@@ -49,7 +49,8 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
 import { Switch } from "@/components/base";
-import { GroupItem } from "@/components/profile/group-item";
+import { BaseSearchBox } from "@/components/base/base-search-box";
+import { GroupItem } from "@/features/profiles/components/profile/group-item";
 import {
   getNetworkInterfaces,
   readProfileFile,
@@ -59,8 +60,6 @@ import { showNotice } from "@/services/noticeService";
 import { useThemeMode } from "@/services/states";
 import type { TranslationKey } from "@/types/generated/i18n-keys";
 import getSystem from "@/utils/get-system";
-
-import { BaseSearchBox } from "../base/base-search-box";
 
 interface Props {
   proxiesUid: string;
@@ -980,7 +979,11 @@ export const GroupsEditorViewer = (props: Props) => {
                 padding: "0 10px",
               }}
             >
-              <BaseSearchBox onSearch={(match) => setMatch(() => match)} />
+              <BaseSearchBox
+                onSearch={(match: (content: string) => boolean) =>
+                  setMatch(() => match)
+                }
+              />
               <Virtuoso
                 style={{ height: "calc(100% - 24px)", marginTop: "8px" }}
                 totalCount={
