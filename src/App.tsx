@@ -1,5 +1,5 @@
-import Layout from "./pages/_layout";
-import { AppDataProvider } from "./providers/app-data-provider";
+import Layout from "@/app/layout";
+import { AppDataProvider } from "@/app/providers/app-data-provider";
 
 function App() {
   return (

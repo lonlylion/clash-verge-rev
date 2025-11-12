@@ -1,6 +1,6 @@
 import { use } from "react";
 
-import { WindowContext, type WindowContextType } from "@/providers/window";
+import { WindowContext, type WindowContextType } from "@/app/providers/window";
 
 export const useWindow = () => {
   const context = use(WindowContext);

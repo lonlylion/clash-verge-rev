@@ -9,8 +9,8 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
+import { useAppData } from "@/app/providers/app-data-context";
 import { useVerge } from "@/hooks/use-verge";
-import { useAppData } from "@/providers/app-data-context";
 import { patchClashMode } from "@/services/cmds";
 import type { TranslationKey } from "@/types/generated/i18n-keys";
 

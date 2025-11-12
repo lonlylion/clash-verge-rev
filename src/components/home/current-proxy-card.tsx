@@ -33,11 +33,11 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 import { delayGroup, healthcheckProxyProvider } from "tauri-plugin-mihomo-api";
 
+import { useAppData } from "@/app/providers/app-data-context";
 import { EnhancedCard } from "@/components/home/enhanced-card";
 import { useProfiles } from "@/hooks/use-profiles";
 import { useProxySelection } from "@/hooks/use-proxy-selection";
 import { useVerge } from "@/hooks/use-verge";
-import { useAppData } from "@/providers/app-data-context";
 import delayManager from "@/services/delay";
 
 // 本地存储的键名

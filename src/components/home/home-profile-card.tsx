@@ -24,7 +24,7 @@ import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 
-import { useAppData } from "@/providers/app-data-context";
+import { useAppData } from "@/app/providers/app-data-context";
 import { openWebUrl, updateProfile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import parseTraffic from "@/utils/parse-traffic";

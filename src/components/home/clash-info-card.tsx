@@ -3,8 +3,8 @@ import { Divider, Stack, Typography } from "@mui/material";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
+import { useAppData } from "@/app/providers/app-data-context";
 import { useClash } from "@/hooks/use-clash";
-import { useAppData } from "@/providers/app-data-context";
 
 import { EnhancedCard } from "./enhanced-card";
 

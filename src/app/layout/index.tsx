@@ -38,27 +38,26 @@ import { useTranslation } from "react-i18next";
 import { Outlet, useNavigate } from "react-router";
 import { SWRConfig } from "swr";
 
+import { LayoutItem } from "@/app/layout/components/layout-item";
+import { LayoutTraffic } from "@/app/layout/components/layout-traffic";
+import { UpdateButton } from "@/app/layout/components/update-button";
+import { useCustomTheme } from "@/app/layout/components/use-custom-theme";
+import { handleNoticeMessage } from "@/app/layout/hooks/notificationHandlers";
+import { useAppInitialization } from "@/app/layout/hooks/useAppInitialization";
+import { useLayoutEvents } from "@/app/layout/hooks/useLayoutEvents";
+import { useLoadingOverlay } from "@/app/layout/hooks/useLoadingOverlay";
+import { navItems } from "@/app/router";
 import iconDark from "@/assets/image/icon_dark.svg?react";
 import iconLight from "@/assets/image/icon_light.svg?react";
 import LogoSvg from "@/assets/image/logo.svg?react";
 import { BaseErrorBoundary } from "@/components/base";
 import { NoticeManager } from "@/components/base/NoticeManager";
 import { WindowControls } from "@/components/controller/window-controller";
-import { LayoutItem } from "@/components/layout/layout-item";
-import { LayoutTraffic } from "@/components/layout/layout-traffic";
-import { UpdateButton } from "@/components/layout/update-button";
-import { useCustomTheme } from "@/components/layout/use-custom-theme";
 import { useI18n } from "@/hooks/use-i18n";
 import { useVerge } from "@/hooks/use-verge";
 import { useWindowDecorations } from "@/hooks/use-window";
 import { useThemeMode } from "@/services/states";
 import getSystem from "@/utils/get-system";
-
-import { handleNoticeMessage } from "./_layout/notificationHandlers";
-import { useAppInitialization } from "./_layout/useAppInitialization";
-import { useLayoutEvents } from "./_layout/useLayoutEvents";
-import { useLoadingOverlay } from "./_layout/useLoadingOverlay";
-import { navItems } from "./_routers";
 
 import "dayjs/locale/ru";
 import "dayjs/locale/zh-cn";

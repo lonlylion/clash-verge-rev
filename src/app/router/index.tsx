@@ -8,6 +8,7 @@ import SubjectRoundedIcon from "@mui/icons-material/SubjectRounded";
 import WifiRoundedIcon from "@mui/icons-material/WifiRounded";
 import { createBrowserRouter, RouteObject } from "react-router";
 
+import Layout from "@/app/layout";
 import ConnectionsSvg from "@/assets/image/itemicon/connections.svg?react";
 import HomeSvg from "@/assets/image/itemicon/home.svg?react";
 import LogsSvg from "@/assets/image/itemicon/logs.svg?react";
@@ -16,16 +17,14 @@ import ProxiesSvg from "@/assets/image/itemicon/proxies.svg?react";
 import RulesSvg from "@/assets/image/itemicon/rules.svg?react";
 import SettingsSvg from "@/assets/image/itemicon/settings.svg?react";
 import UnlockSvg from "@/assets/image/itemicon/unlock.svg?react";
-
-import Layout from "./_layout";
-import ConnectionsPage from "./connections";
-import HomePage from "./home";
-import LogsPage from "./logs";
-import ProfilesPage from "./profiles";
-import ProxiesPage from "./proxies";
-import RulesPage from "./rules";
-import SettingsPage from "./settings";
-import UnlockPage from "./unlock";
+import ConnectionsPage from "@/pages/connections";
+import HomePage from "@/pages/home";
+import LogsPage from "@/pages/logs";
+import ProfilesPage from "@/pages/profiles";
+import ProxiesPage from "@/pages/proxies";
+import RulesPage from "@/pages/rules";
+import SettingsPage from "@/pages/settings";
+import UnlockPage from "@/pages/unlock";
 
 export const navItems = [
   {

@@ -4,7 +4,7 @@ import { mutate } from "swr";
 import useSWRSubscription from "swr/subscription";
 import { MihomoWebSocket, Traffic } from "tauri-plugin-mihomo-api";
 
-import { TrafficRef } from "@/components/layout/traffic-graph";
+import { TrafficRef } from "@/app/layout/components/traffic-graph";
 
 import { useTrafficMonitorEnhanced } from "./use-traffic-monitor";
 

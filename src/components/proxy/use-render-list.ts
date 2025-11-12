@@ -1,8 +1,8 @@
 import { useEffect, useMemo } from "react";
 import useSWR from "swr";
 
+import { useAppData } from "@/app/providers/app-data-context";
 import { useVerge } from "@/hooks/use-verge";
-import { useAppData } from "@/providers/app-data-context";
 import { getRuntimeConfig } from "@/services/cmds";
 import delayManager from "@/services/delay";
 

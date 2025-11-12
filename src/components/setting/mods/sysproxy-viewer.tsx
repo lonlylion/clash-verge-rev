@@ -23,12 +23,12 @@ import { useTranslation } from "react-i18next";
 import useSWR, { mutate } from "swr";
 import { getBaseConfig } from "tauri-plugin-mihomo-api";
 
+import { useAppData } from "@/app/providers/app-data-context";
 import { BaseDialog, DialogRef, Switch } from "@/components/base";
 import { BaseFieldset } from "@/components/base/base-fieldset";
 import { TooltipIcon } from "@/components/base/base-tooltip-icon";
 import { EditorViewer } from "@/components/profile/editor-viewer";
 import { useVerge } from "@/hooks/use-verge";
-import { useAppData } from "@/providers/app-data-context";
 import {
   getAutotemProxy,
   getNetworkInterfacesInfo,

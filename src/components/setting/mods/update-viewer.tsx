@@ -9,9 +9,9 @@ import { useTranslation } from "react-i18next";
 import ReactMarkdown from "react-markdown";
 import useSWR from "swr";
 
+import { portableFlag } from "@/app/layout";
 import { BaseDialog, DialogRef } from "@/components/base";
 import { useListen } from "@/hooks/use-listen";
-import { portableFlag } from "@/pages/_layout";
 import { showNotice } from "@/services/noticeService";
 import { useSetUpdateState, useUpdateState } from "@/services/states";
 import { checkUpdateSafe as checkUpdate } from "@/services/update";
