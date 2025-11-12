@@ -10,4 +10,6 @@ This folder hosts the design-system-first stack that will replace the existing M
 - `providers/`: Theme/Toast/Dialog providers that wire primitives into the React tree.
 - `legacy-mui/`: quarantined MUI-based pieces that cannot yet be rewritten; they should gradually shrink to zero.
 
+Import everything from this stack via the `@ui` alias (e.g. `import { Page } from "@ui";`). Avoid using old `@/components/ui` paths so we can delete the legacy folder entirely once all features migrate.
+
 Anything exported from here should be framework-agnostic (no feature-specific logic) so features can migrate progressively.

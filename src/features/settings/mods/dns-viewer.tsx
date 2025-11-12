@@ -27,11 +27,11 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, DialogRef, Switch } from "@/components/ui";
 import { useClash } from "@/hooks/use-clash";
 import { showNotice } from "@/services/noticeService";
 import { useThemeMode } from "@/services/states";
 import getSystem from "@/utils/get-system";
+import { Modal, DialogRef, Switch } from "@ui";
 
 const Item = styled(ListItem)(() => ({
   padding: "5px 2px",

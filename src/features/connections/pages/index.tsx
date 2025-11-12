@@ -11,15 +11,6 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
-import { EmptyState } from "@/components/ui";
-import { Page, SearchBox } from "@/components/ui";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui";
 import {
   ConnectionDetail,
   ConnectionDetailRef,
@@ -30,6 +21,15 @@ import { useConnectionData } from "@/hooks/use-connection-data";
 import { useVisibility } from "@/hooks/use-visibility";
 import { useConnectionSetting } from "@/services/states";
 import parseTraffic from "@/utils/parse-traffic";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@ui";
+import { Page, SearchBox } from "@ui";
+import { EmptyState } from "@ui";
 
 const initConn: IConnections = {
   uploadTotal: 0,

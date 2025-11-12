@@ -5,9 +5,9 @@ import { forwardRef, useImperativeHandle, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { Modal } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
+import { Modal } from "@ui";
 
 interface Props {
   onChange: (uid: string, patch?: Partial<IVergeTestItem>) => void;

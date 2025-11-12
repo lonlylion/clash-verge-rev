@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 import useSWR from "swr";
 import { closeAllConnections, getBaseConfig } from "tauri-plugin-mihomo-api";
 
-import { Page } from "@/components/ui";
 import { ProxyGroups } from "@/features/proxies/components/groups/proxy-groups";
 import { ProviderButton } from "@/features/proxies/components/provider-button";
 import { useVerge } from "@/hooks/use-verge";
@@ -15,6 +14,7 @@ import {
   patchClashMode,
   updateProxyChainConfigInRuntime,
 } from "@/services/cmds";
+import { Page } from "@ui";
 
 const MODES = ["rule", "global", "direct"] as const;
 type Mode = (typeof MODES)[number];

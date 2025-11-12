@@ -7,13 +7,13 @@ import type { ChangeEvent, MouseEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { updateGeo } from "tauri-plugin-mihomo-api";
 
-import { DialogRef, Switch, TooltipIcon } from "@/components/ui";
 import { useClash } from "@/hooks/use-clash";
 import { useVerge } from "@/hooks/use-verge";
 import { invoke_uwp_tool } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { useClashLog } from "@/services/states";
 import getSystem from "@/utils/get-system";
+import { DialogRef, Switch, TooltipIcon } from "@ui";
 
 import { ClashCoreViewer } from "../mods/clash-core-viewer";
 import { ClashPortViewer } from "../mods/clash-port-viewer";

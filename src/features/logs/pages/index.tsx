@@ -7,18 +7,18 @@ import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
-import { EmptyState } from "@/components/ui";
-import { Page, SearchBox, type SearchState } from "@/components/ui";
+import LogItem from "@/features/logs/components/log/log-item";
+import { useLogData } from "@/hooks/use-log-data";
+import { LogFilter, useClashLog } from "@/services/states";
+import { EmptyState } from "@ui";
+import { Page, SearchBox, type SearchState } from "@ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui";
-import LogItem from "@/features/logs/components/log/log-item";
-import { useLogData } from "@/hooks/use-log-data";
-import { LogFilter, useClashLog } from "@/services/states";
+} from "@ui";
 
 const LogPage = () => {
   const { t } = useTranslation();

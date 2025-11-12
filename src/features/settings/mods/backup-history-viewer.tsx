@@ -29,7 +29,6 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, LoadingOverlay } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import {
   deleteLocalBackup,
@@ -42,6 +41,7 @@ import {
   restoreWebDavBackup,
 } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
+import { Modal, LoadingOverlay } from "@ui";
 
 dayjs.extend(customParseFormat);
 dayjs.extend(relativeTime);

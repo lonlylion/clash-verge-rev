@@ -42,12 +42,12 @@ import {
 import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
-import { Switch, SearchBox } from "@/components/ui";
 import { RuleItem } from "@/features/profiles/components/rule-item";
 import { readProfileFile, saveProfileFile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { useThemeMode } from "@/services/states";
 import getSystem from "@/utils/get-system";
+import { Switch, SearchBox } from "@ui";
 
 interface Props {
   groupsUid: string;

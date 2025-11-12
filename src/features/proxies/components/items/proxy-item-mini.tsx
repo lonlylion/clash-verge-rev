@@ -4,9 +4,9 @@ import { useLockFn } from "ahooks";
 import { useCallback, useEffect, useReducer } from "react";
 import { useTranslation } from "react-i18next";
 
-import { LoadingIndicator } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import delayManager, { DelayUpdate } from "@/services/delay";
+import { LoadingIndicator } from "@ui";
 
 interface Props {
   group: IProxyGroupItem;

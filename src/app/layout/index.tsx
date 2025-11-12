@@ -51,12 +51,12 @@ import iconDark from "@/assets/image/icon_dark.svg?react";
 import iconLight from "@/assets/image/icon_light.svg?react";
 import LogoSvg from "@/assets/image/logo.svg?react";
 import { WindowControls } from "@/components/controller/window-controller";
-import { ErrorBoundary, NotificationStack } from "@/components/ui";
 import { useI18n } from "@/hooks/use-i18n";
 import { useVerge } from "@/hooks/use-verge";
 import { useWindowDecorations } from "@/hooks/use-window";
 import { useThemeMode } from "@/services/states";
 import getSystem from "@/utils/get-system";
+import { ErrorBoundary, NotificationStack } from "@ui";
 
 import "dayjs/locale/ru";
 import "dayjs/locale/zh-cn";

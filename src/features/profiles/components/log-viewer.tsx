@@ -11,7 +11,7 @@ import {
 import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
-import { EmptyState } from "@/components/ui";
+import { EmptyState } from "@ui";
 
 interface Props {
   open: boolean;

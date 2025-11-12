@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import useSWR from "swr";
 
-import { DialogRef, Button } from "@/components/ui";
 import { UpdateViewer } from "@/features/settings/mods/update-viewer";
 import { useVerge } from "@/hooks/use-verge";
 import { cn } from "@/lib/utils";
 import { checkUpdateSafe } from "@/services/update";
+import { DialogRef, Button } from "@ui";
 
 interface Props {
   className?: string;

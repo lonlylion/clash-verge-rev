@@ -19,6 +19,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@core/*": ["src/core/*"],
+      "@ui": ["src/ui/index.ts"],
       "@ui/*": ["src/ui/*"],
       "@shared/*": ["src/shared/*"],
       "@widgets/*": ["src/widgets/*"],

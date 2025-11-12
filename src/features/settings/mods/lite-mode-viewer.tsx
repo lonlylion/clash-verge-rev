@@ -11,10 +11,10 @@ import type { Ref, ChangeEvent } from "react";
 import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, DialogRef, Switch, TooltipIcon } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { entry_lightweight_mode } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
+import { Modal, DialogRef, Switch, TooltipIcon } from "@ui";
 
 export function LiteModeViewer({ ref }: { ref?: Ref<DialogRef> }) {
   const { t } = useTranslation();

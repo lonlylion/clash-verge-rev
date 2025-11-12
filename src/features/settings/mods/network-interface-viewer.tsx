@@ -6,9 +6,9 @@ import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useSWR from "swr";
 
-import { Modal, DialogRef } from "@/components/ui";
 import { getNetworkInterfacesInfo } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
+import { Modal, DialogRef } from "@ui";
 
 export function NetworkInterfaceViewer({ ref }: { ref?: Ref<DialogRef> }) {
   const { t } = useTranslation();

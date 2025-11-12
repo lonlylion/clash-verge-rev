@@ -4,11 +4,11 @@ import type { Ref } from "react";
 import { useImperativeHandle, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, EmptyState, DialogRef } from "@/components/ui";
 import { useClashInfo } from "@/hooks/use-clash";
 import { useVerge } from "@/hooks/use-verge";
 import { openWebUrl } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
+import { Modal, EmptyState, DialogRef } from "@ui";
 
 import { WebUIItem } from "./web-ui-item";
 

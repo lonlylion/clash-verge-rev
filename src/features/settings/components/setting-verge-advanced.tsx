@@ -3,8 +3,6 @@ import { Typography } from "@mui/material";
 import { useCallback, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import { DialogRef } from "@/components/ui";
-import { TooltipIcon } from "@/components/ui";
 import {
   exitApp,
   exportDiagnosticInfo,
@@ -16,6 +14,8 @@ import {
 import { showNotice } from "@/services/noticeService";
 import { checkUpdateSafe as checkUpdate } from "@/services/update";
 import { version } from "@root/package.json";
+import { TooltipIcon } from "@ui";
+import { DialogRef } from "@ui";
 
 import { BackupViewer } from "../mods/backup-viewer";
 import { ConfigViewer } from "../mods/config-viewer";

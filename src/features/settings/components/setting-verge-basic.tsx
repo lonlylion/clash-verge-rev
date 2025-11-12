@@ -7,13 +7,13 @@ import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 
 import { navItems } from "@/app/router";
-import { DialogRef } from "@/components/ui";
-import { TooltipIcon } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { copyClashEnv } from "@/services/cmds";
 import { supportedLanguages } from "@/services/i18n";
 import { showNotice } from "@/services/noticeService";
 import getSystem from "@/utils/get-system";
+import { TooltipIcon } from "@ui";
+import { DialogRef } from "@ui";
 
 import { BackupViewer } from "../mods/backup-viewer";
 import { ConfigViewer } from "../mods/config-viewer";

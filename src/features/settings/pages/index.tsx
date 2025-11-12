@@ -3,7 +3,6 @@ import { Box, ButtonGroup, IconButton, Grid } from "@mui/material";
 import { useLockFn } from "ahooks";
 import { useTranslation } from "react-i18next";
 
-import { Page } from "@/components/ui";
 import SettingClash from "@/features/settings/components/setting-clash";
 import SettingSystem from "@/features/settings/components/setting-system";
 import SettingVergeAdvanced from "@/features/settings/components/setting-verge-advanced";
@@ -11,6 +10,7 @@ import SettingVergeBasic from "@/features/settings/components/setting-verge-basi
 import { openWebUrl } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { useThemeMode } from "@/services/states";
+import { Page } from "@ui";
 
 const SettingPage = () => {
   const { t } = useTranslation();

@@ -12,7 +12,6 @@ import React, { useCallback, useRef } from "react";
 import type { ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 
-import { DialogRef, Switch, TooltipIcon } from "@/components/ui";
 import { GuardState } from "@/features/settings/mods/guard-state";
 import { SysproxyViewer } from "@/features/settings/mods/sysproxy-viewer";
 import { TunViewer } from "@/features/settings/mods/tun-viewer";
@@ -22,6 +21,7 @@ import { useVerge } from "@/hooks/use-verge";
 import { useServiceInstaller } from "@/hooks/useServiceInstaller";
 import { useServiceUninstaller } from "@/hooks/useServiceUninstaller";
 import { showNotice } from "@/services/noticeService";
+import { DialogRef, Switch, TooltipIcon } from "@ui";
 
 interface ProxySwitchProps {
   label?: string;

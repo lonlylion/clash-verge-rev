@@ -14,11 +14,11 @@ import { useEffect, useImperativeHandle, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { Modal, Switch } from "@/components/ui";
 import { useProfiles } from "@/hooks/use-profiles";
 import { createProfile, patchProfile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { version } from "@root/package.json";
+import { Modal, Switch } from "@ui";
 
 import { FileInput } from "./file-input";
 

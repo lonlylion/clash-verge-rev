@@ -8,9 +8,9 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, DialogRef, Switch } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
+import { Modal, DialogRef, Switch } from "@ui";
 
 import { HotkeyInput } from "./hotkey-input";
 

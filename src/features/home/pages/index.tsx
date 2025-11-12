@@ -25,7 +25,6 @@ import { useLockFn } from "ahooks";
 import { Suspense, lazy, useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Page } from "@/components/ui";
 import { ClashModeCard } from "@/features/home/components/clash-mode-card";
 import { CurrentProxyCard } from "@/features/home/components/current-proxy-card";
 import { EnhancedCard } from "@/features/home/components/enhanced-card";
@@ -35,6 +34,7 @@ import { ProxyTunCard } from "@/features/home/components/proxy-tun-card";
 import { useProfiles } from "@/hooks/use-profiles";
 import { useVerge } from "@/hooks/use-verge";
 import { entry_lightweight_mode, openWebUrl } from "@/services/cmds";
+import { Page } from "@ui";
 
 const LazyTestCard = lazy(() =>
   import("@/features/home/components/test-card").then((module) => ({

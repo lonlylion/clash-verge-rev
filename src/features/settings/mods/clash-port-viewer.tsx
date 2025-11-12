@@ -12,11 +12,11 @@ import { useLockFn, useRequest } from "ahooks";
 import { ChangeEvent, forwardRef, useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, Switch } from "@/components/ui";
 import { useClashInfo } from "@/hooks/use-clash";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
 import getSystem from "@/utils/get-system";
+import { Modal, Switch } from "@ui";
 
 const OS = getSystem();
 

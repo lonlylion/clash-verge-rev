@@ -1,7 +1,7 @@
 import { styled, Box } from "@mui/material";
 import type { ReactNode } from "react";
 
-import { SearchState } from "@/components/ui";
+import { SearchState } from "@ui";
 
 const Item = styled(Box)(({ theme: { palette, typography } }) => ({
   padding: "8px 0",

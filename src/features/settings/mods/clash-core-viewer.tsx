@@ -18,10 +18,10 @@ import { useTranslation } from "react-i18next";
 import { mutate } from "swr";
 import { closeAllConnections, upgradeCore } from "tauri-plugin-mihomo-api";
 
-import { Modal, DialogRef } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { changeClashCore, restartCore } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
+import { Modal, DialogRef } from "@ui";
 
 const VALID_CORE = [
   {

@@ -16,9 +16,9 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, DialogRef, Switch, TooltipIcon } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
+import { Modal, DialogRef, Switch, TooltipIcon } from "@ui";
 
 export const MiscViewer = forwardRef<DialogRef>((props, ref) => {
   const { t } = useTranslation();

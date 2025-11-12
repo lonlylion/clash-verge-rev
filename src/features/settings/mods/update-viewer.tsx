@@ -10,11 +10,11 @@ import ReactMarkdown from "react-markdown";
 import useSWR from "swr";
 
 import { portableFlag } from "@/app/layout";
-import { Modal, DialogRef } from "@/components/ui";
 import { useListen } from "@/hooks/use-listen";
 import { showNotice } from "@/services/noticeService";
 import { useSetUpdateState, useUpdateState } from "@/services/states";
 import { checkUpdateSafe as checkUpdate } from "@/services/update";
+import { Modal, DialogRef } from "@ui";
 
 export function UpdateViewer({ ref }: { ref?: Ref<DialogRef> }) {
   const { t } = useTranslation();

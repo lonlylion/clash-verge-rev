@@ -25,13 +25,6 @@ import useSWR, { mutate } from "swr";
 import { getBaseConfig } from "tauri-plugin-mihomo-api";
 
 import { useAppData } from "@/app/providers/app-data-context";
-import {
-  Modal,
-  DialogRef,
-  Fieldset,
-  Switch,
-  TooltipIcon,
-} from "@/components/ui";
 import { EditorViewer } from "@/features/profiles/components/editor-viewer";
 import { useVerge } from "@/hooks/use-verge";
 import {
@@ -43,6 +36,7 @@ import {
 } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import getSystem from "@/utils/get-system";
+import { Modal, DialogRef, Fieldset, Switch, TooltipIcon } from "@ui";
 
 const sleep = (ms: number) =>
   new Promise<void>((resolve) => {

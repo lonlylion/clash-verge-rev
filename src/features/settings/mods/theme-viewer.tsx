@@ -12,11 +12,11 @@ import { useLockFn } from "ahooks";
 import { useImperativeHandle, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, DialogRef } from "@/components/ui";
 import { EditorViewer } from "@/features/profiles/components/editor-viewer";
 import { useVerge } from "@/hooks/use-verge";
 import { defaultDarkTheme, defaultTheme } from "@/pages/_theme";
 import { showNotice } from "@/services/noticeService";
+import { Modal, DialogRef } from "@ui";
 
 export function ThemeViewer(props: { ref?: React.Ref<DialogRef> }) {
   const { ref } = props;

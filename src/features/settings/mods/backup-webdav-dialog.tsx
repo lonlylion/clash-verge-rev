@@ -2,9 +2,9 @@ import { Box } from "@mui/material";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, LoadingOverlay } from "@/components/ui";
 import { listWebDavBackup } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
+import { Modal, LoadingOverlay } from "@ui";
 
 import { BackupConfigViewer } from "./backup-config-viewer";
 

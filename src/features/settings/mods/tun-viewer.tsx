@@ -12,11 +12,11 @@ import type { Ref, ChangeEvent } from "react";
 import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, DialogRef, Switch } from "@/components/ui";
 import { useClash } from "@/hooks/use-clash";
 import { enhanceProfiles } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import getSystem from "@/utils/get-system";
+import { Modal, DialogRef, Switch } from "@ui";
 
 import { StackModeSwitch } from "./stack-mode-switch";
 

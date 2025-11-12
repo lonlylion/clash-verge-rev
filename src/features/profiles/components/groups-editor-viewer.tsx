@@ -48,8 +48,6 @@ import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
-import { Switch } from "@/components/ui";
-import { SearchBox } from "@/components/ui";
 import { GroupItem } from "@/features/profiles/components/group-item";
 import {
   getNetworkInterfaces,
@@ -60,6 +58,8 @@ import { showNotice } from "@/services/noticeService";
 import { useThemeMode } from "@/services/states";
 import type { TranslationKey } from "@/types/generated/i18n-keys";
 import getSystem from "@/utils/get-system";
+import { SearchBox } from "@ui";
+import { Switch } from "@ui";
 
 interface Props {
   proxiesUid: string;

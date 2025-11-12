@@ -20,10 +20,10 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, DialogRef, Switch } from "@/components/ui";
 import { useClashInfo } from "@/hooks/use-clash";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
+import { Modal, DialogRef, Switch } from "@ui";
 
 export function ControllerViewer({ ref }: { ref?: Ref<DialogRef> }) {
   const { t } = useTranslation();

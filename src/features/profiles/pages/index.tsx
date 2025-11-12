@@ -37,7 +37,6 @@ import { useLocation } from "react-router";
 import useSWR, { mutate } from "swr";
 import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
-import { Input, Page, DialogRef } from "@/components/ui";
 import { ProfileItem } from "@/features/profiles/components/profile-item";
 import { ProfileMore } from "@/features/profiles/components/profile-more";
 import {
@@ -60,6 +59,7 @@ import {
 } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { useSetLoadingCache, useThemeMode } from "@/services/states";
+import { Input, Page, DialogRef } from "@ui";
 
 // 记录profile切换状态
 const debugProfileSwitch = (action: string, profile: string, extra?: any) => {

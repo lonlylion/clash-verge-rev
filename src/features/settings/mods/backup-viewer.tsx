@@ -12,9 +12,9 @@ import type { ReactNode, Ref } from "react";
 import { useImperativeHandle, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, DialogRef } from "@/components/ui";
 import { createLocalBackup, createWebdavBackup } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
+import { Modal, DialogRef } from "@ui";
 
 import { AutoBackupSettings } from "./auto-backup-settings";
 import { BackupHistoryViewer } from "./backup-history-viewer";

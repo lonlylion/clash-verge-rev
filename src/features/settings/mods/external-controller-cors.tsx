@@ -10,9 +10,9 @@ import {
 } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Modal, Switch } from "@/components/ui";
 import { useClash } from "@/hooks/use-clash";
 import { showNotice } from "@/services/noticeService";
+import { Modal, Switch } from "@ui";
 
 // 定义开发环境的URL列表
 // 这些URL在开发模式下会被自动包含在允许的来源中

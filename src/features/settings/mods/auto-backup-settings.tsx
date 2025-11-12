@@ -9,9 +9,9 @@ import { useLockFn } from "ahooks";
 import { Fragment, useMemo, useState, type ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Switch } from "@/components/ui";
 import { useVerge } from "@/hooks/use-verge";
 import { showNotice } from "@/services/noticeService";
+import { Switch } from "@ui";
 
 const MIN_INTERVAL_HOURS = 1;
 const MAX_INTERVAL_HOURS = 168;

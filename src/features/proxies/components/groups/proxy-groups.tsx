@@ -17,7 +17,6 @@ import { delayGroup, healthcheckProxyProvider } from "tauri-plugin-mihomo-api";
 
 import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
-import { EmptyState } from "@/components/ui";
 import { ProxyChain } from "@/features/proxies/components/groups/proxy-chain";
 import {
   ProxyGroupNavigator,
@@ -29,6 +28,7 @@ import { useProxySelection } from "@/hooks/use-proxy-selection";
 import { useVerge } from "@/hooks/use-verge";
 import { updateProxyChainConfigInRuntime } from "@/services/cmds";
 import delayManager from "@/services/delay";
+import { EmptyState } from "@ui";
 
 interface Props {
   mode: string;

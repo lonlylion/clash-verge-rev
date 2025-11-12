@@ -24,9 +24,9 @@ import { useLockFn } from "ahooks";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { EmptyState } from "@/components/ui";
-import { Page } from "@/components/ui";
 import { showNotice } from "@/services/noticeService";
+import { EmptyState } from "@ui";
+import { Page } from "@ui";
 
 interface UnlockItem {
   name: string;

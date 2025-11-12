@@ -11,10 +11,11 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router";
 import { MihomoWebSocket } from "tauri-plugin-mihomo-api";
 
+import { ErrorBoundary } from "@ui";
+
 import { AppDataProvider } from "./app/providers/app-data-provider";
 import { WindowProvider } from "./app/providers/window";
 import { router } from "./app/router";
-import { ErrorBoundary } from "./components/ui";
 import { initializeLanguage } from "./services/i18n";
 import {
   LoadingCacheProvider,

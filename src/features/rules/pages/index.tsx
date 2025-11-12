@@ -5,11 +5,11 @@ import { Virtuoso, VirtuosoHandle } from "react-virtuoso";
 
 import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
-import { EmptyState } from "@/components/ui";
-import { Page, SearchBox } from "@/components/ui";
 import { ProviderButton } from "@/features/rules/components/provider-button";
 import RuleItem from "@/features/rules/components/rule-item";
 import { useVisibility } from "@/hooks/use-visibility";
+import { Page, SearchBox } from "@ui";
+import { EmptyState } from "@ui";
 
 const RulesPage = () => {
   const { t } = useTranslation();
