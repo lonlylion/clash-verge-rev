@@ -4,7 +4,7 @@ import {
   TableChartRounded,
   TableRowsRounded,
 } from "@mui/icons-material";
-import { Box, Button, IconButton, MenuItem } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
 import { useLockFn } from "ahooks";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -13,7 +13,13 @@ import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
 import { BaseEmpty, BasePage } from "@/components/base";
 import { BaseSearchBox } from "@/components/base/base-search-box";
-import { BaseStyledSelect } from "@/components/base/base-styled-select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   ConnectionDetail,
   ConnectionDetailRef,
@@ -231,16 +237,21 @@ const ConnectionsPage = () => {
         }}
       >
         {!isTableLayout && (
-          <BaseStyledSelect
+          <Select
             value={curOrderOpt}
-            onChange={(e) => setCurOrderOpt(e.target.value as OrderKey)}
+            onValueChange={(value) => setCurOrderOpt(value as OrderKey)}
           >
-            {ORDER_OPTIONS.map((option) => (
-              <MenuItem key={option.id} value={option.id}>
-                <span style={{ fontSize: 14 }}>{t(option.labelKey)}</span>
-              </MenuItem>
-            ))}
-          </BaseStyledSelect>
+            <SelectTrigger className="w-[160px]">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {ORDER_OPTIONS.map((option) => (
+                <SelectItem key={option.id} value={option.id}>
+                  {t(option.labelKey)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         )}
         <Box
           sx={{

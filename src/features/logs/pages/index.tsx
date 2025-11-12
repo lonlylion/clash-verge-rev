@@ -2,7 +2,7 @@ import {
   PlayCircleOutlineRounded,
   PauseCircleOutlineRounded,
 } from "@mui/icons-material";
-import { Box, Button, IconButton, MenuItem } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
@@ -10,7 +10,13 @@ import { Virtuoso } from "react-virtuoso";
 import { BaseEmpty, BasePage } from "@/components/base";
 import { BaseSearchBox } from "@/components/base/base-search-box";
 import { SearchState } from "@/components/base/base-search-box";
-import { BaseStyledSelect } from "@/components/base/base-styled-select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import LogItem from "@/features/logs/components/log/log-item";
 import { useLogData } from "@/hooks/use-log-data";
 import { LogFilter, useClashLog } from "@/services/states";
@@ -109,18 +115,31 @@ const LogPage = () => {
           alignItems: "center",
         }}
       >
-        <BaseStyledSelect
+        <Select
           value={logState}
-          onChange={(e) => handleLogLevelChange(e.target.value as LogFilter)}
+          onValueChange={(value) => handleLogLevelChange(value as LogFilter)}
         >
-          <MenuItem value="all">{t("shared.filters.logLevels.all")}</MenuItem>
-          <MenuItem value="debug">
-            {t("shared.filters.logLevels.debug")}
-          </MenuItem>
-          <MenuItem value="info">{t("shared.filters.logLevels.info")}</MenuItem>
-          <MenuItem value="warn">{t("shared.filters.logLevels.warn")}</MenuItem>
-          <MenuItem value="err">{t("shared.filters.logLevels.error")}</MenuItem>
-        </BaseStyledSelect>
+          <SelectTrigger className="w-[140px]">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">
+              {t("shared.filters.logLevels.all")}
+            </SelectItem>
+            <SelectItem value="debug">
+              {t("shared.filters.logLevels.debug")}
+            </SelectItem>
+            <SelectItem value="info">
+              {t("shared.filters.logLevels.info")}
+            </SelectItem>
+            <SelectItem value="warn">
+              {t("shared.filters.logLevels.warn")}
+            </SelectItem>
+            <SelectItem value="err">
+              {t("shared.filters.logLevels.error")}
+            </SelectItem>
+          </SelectContent>
+        </Select>
         <BaseSearchBox
           onSearch={(matcher, state) => {
             setMatch(() => matcher);

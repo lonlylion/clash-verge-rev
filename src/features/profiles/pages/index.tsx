@@ -38,7 +38,7 @@ import useSWR, { mutate } from "swr";
 import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
 import { BasePage, DialogRef } from "@/components/base";
-import { BaseStyledTextField } from "@/components/base/base-styled-text-field";
+import { Input } from "@/components/ui/input";
 import { ProfileItem } from "@/features/profiles/components/profile-item";
 import { ProfileMore } from "@/features/profiles/components/profile-more";
 import {
@@ -926,48 +926,45 @@ const ProfilePage = () => {
           alignItems: "center",
         }}
       >
-        <BaseStyledTextField
-          value={url}
-          variant="outlined"
-          onChange={(event: ChangeEvent<HTMLInputElement>) =>
-            setUrl(event.target.value)
-          }
-          onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
-            if (event.key !== "Enter" || event.nativeEvent.isComposing) {
-              return;
+        <div className="relative flex-1">
+          <Input
+            value={url}
+            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+              setUrl(event.target.value)
             }
-            if (!url || disabled || loading) {
-              return;
-            }
-            event.preventDefault();
-            void onImport();
-          }}
-          placeholder={t("profiles.page.importForm.placeholder")}
-          slotProps={{
-            input: {
-              sx: { pr: 1 },
-              endAdornment: !url ? (
-                <IconButton
-                  size="small"
-                  sx={{ p: 0.5 }}
-                  title={t("profiles.page.importForm.actions.paste")}
-                  onClick={onCopyLink}
-                >
-                  <ContentPasteRounded fontSize="inherit" />
-                </IconButton>
-              ) : (
-                <IconButton
-                  size="small"
-                  sx={{ p: 0.5 }}
-                  title={t("shared.actions.clear")}
-                  onClick={() => setUrl("")}
-                >
-                  <ClearRounded fontSize="inherit" />
-                </IconButton>
-              ),
-            },
-          }}
-        />
+            onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
+              if (event.key !== "Enter" || event.nativeEvent.isComposing) {
+                return;
+              }
+              if (!url || disabled || loading) {
+                return;
+              }
+              event.preventDefault();
+              void onImport();
+            }}
+            placeholder={t("profiles.page.importForm.placeholder")}
+            className="pr-10"
+          />
+          {!url ? (
+            <button
+              type="button"
+              title={t("profiles.page.importForm.actions.paste")}
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1 text-[var(--verge-color-muted-foreground)] transition-colors hover:bg-[var(--verge-color-surface-muted)]"
+              onClick={onCopyLink}
+            >
+              <ContentPasteRounded fontSize="inherit" />
+            </button>
+          ) : (
+            <button
+              type="button"
+              title={t("shared.actions.clear")}
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1 text-[var(--verge-color-muted-foreground)] transition-colors hover:bg-[var(--verge-color-surface-muted)]"
+              onClick={() => setUrl("")}
+            >
+              <ClearRounded fontSize="inherit" />
+            </button>
+          )}
+        </div>
         <LoadingButton
           disabled={!url || disabled}
           loading={loading}
