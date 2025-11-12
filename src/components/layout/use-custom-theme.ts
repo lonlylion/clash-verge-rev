@@ -1,4 +1,4 @@
-import { alpha, createTheme, Theme as MuiTheme, Shadows } from "@mui/material";
+import { createTheme, Theme as MuiTheme, Shadows } from "@mui/material";
 import {
   arSD as arXDataGrid,
   enUS as enXDataGrid,
@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
 import { useVerge } from "@/hooks/use-verge";
 import { defaultDarkTheme, defaultTheme } from "@/pages/_theme";
 import { useSetThemeMode, useThemeMode } from "@/services/states";
+import { applyThemeCssVars, useThemeTokens } from "@/theme/tokens";
 
 const languagePackMap: Record<string, any> = {
   zh: { ...zhXDataGrid },
@@ -40,7 +41,7 @@ export const useCustomTheme = () => {
   const mode = useThemeMode();
   const setMode = useSetThemeMode();
   const userBackgroundImage = theme_setting?.background_image || "";
-  const hasUserBackground = !!userBackgroundImage;
+  const tokens = useThemeTokens(mode, theme_setting);
 
   useEffect(() => {
     if (theme_mode === "light" || theme_mode === "dark") {
@@ -218,134 +219,52 @@ export const useCustomTheme = () => {
       });
     }
 
-    const rootEle = document.documentElement;
-    if (rootEle) {
-      const backgroundColor =
-        mode === "light" ? "#ECECEC" : dt.background_color;
-      const selectColor = mode === "light" ? "#f5f5f5" : "#3E3E3E";
-      const scrollColor = mode === "light" ? "#90939980" : "#555555";
-      const dividerColor =
-        mode === "light" ? "rgba(0, 0, 0, 0.06)" : "rgba(255, 255, 255, 0.06)";
-      rootEle.style.setProperty("--divider-color", dividerColor);
-      rootEle.style.setProperty("--background-color", backgroundColor);
-      rootEle.style.setProperty("--selection-color", selectColor);
-      rootEle.style.setProperty("--scroller-color", scrollColor);
-      rootEle.style.setProperty(
-        "--primary-main",
-        muiTheme.palette.primary.main,
-      );
-      rootEle.style.setProperty(
-        "--background-color-alpha",
-        alpha(muiTheme.palette.primary.main, 0.1),
-      );
-      rootEle.style.setProperty(
-        "--window-border-color",
-        mode === "light" ? "#cccccc" : "#1E1E1E",
-      );
-      rootEle.style.setProperty(
-        "--scrollbar-bg",
-        mode === "light" ? "#f1f1f1" : "#2E303D",
-      );
-      rootEle.style.setProperty(
-        "--scrollbar-thumb",
-        mode === "light" ? "#c1c1c1" : "#555555",
-      );
-      rootEle.style.setProperty(
-        "--user-background-image",
-        hasUserBackground ? `url('${userBackgroundImage}')` : "none",
-      );
-      rootEle.style.setProperty(
-        "--background-blend-mode",
-        setting.background_blend_mode || "normal",
-      );
-      rootEle.style.setProperty(
-        "--background-opacity",
-        setting.background_opacity !== undefined
-          ? String(setting.background_opacity)
-          : "1",
-      );
+    return muiTheme;
+  }, [mode, theme_setting, i18n.language]);
+
+  useEffect(() => {
+    applyThemeCssVars({
+      tokens,
+      mode,
+      cssInjection: theme_setting?.css_injection,
+      userBackgroundImage,
+      backgroundBlendMode: theme_setting?.background_blend_mode,
+      backgroundOpacity: theme_setting?.background_opacity,
+    });
+  }, [
+    tokens,
+    mode,
+    theme_setting?.css_injection,
+    theme_setting?.background_blend_mode,
+    theme_setting?.background_opacity,
+    userBackgroundImage,
+  ]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
     }
 
-    let styleElement = document.querySelector("style#verge-theme");
-    if (!styleElement) {
-      styleElement = document.createElement("style");
-      styleElement.id = "verge-theme";
-      document.head.appendChild(styleElement!);
+    const palettePrimary = theme?.palette.primary;
+    if (!palettePrimary) {
+      return;
     }
 
-    if (styleElement) {
-      const globalStyles = `
-        /* 修复滚动条样式 */
-        ::-webkit-scrollbar {
-          width: 8px;
-          height: 8px;
-          background-color: var(--scrollbar-bg);
-        }
-        ::-webkit-scrollbar-thumb {
-          background-color: var(--scrollbar-thumb);
-          border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-          background-color: ${mode === "light" ? "#a1a1a1" : "#666666"};
-        }
-
-        /* 背景图处理 */
-        body {
-          background-color: var(--background-color);
-          ${
-            hasUserBackground
-              ? `
-            background-image: var(--user-background-image);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-blend-mode: var(--background-blend-mode);
-            opacity: var(--background-opacity);
-          `
-              : ""
-          }
-        }
-
-        /* 修复可能的白色边框 */
-        .MuiPaper-root {
-          border-color: var(--window-border-color) !important;
-        }
-
-        /* 确保模态框和对话框也使用暗色主题 */
-        .MuiDialog-paper {
-          background-color: ${mode === "light" ? "#ffffff" : "#2E303D"} !important;
-        }
-
-        /* 移除可能的白色点或线条 */
-        * {
-          outline: none !important;
-          box-shadow: none !important;
-        }
-      `;
-
-      styleElement.innerHTML = (setting.css_injection || "") + globalStyles;
-    }
-
-    const { palette } = muiTheme;
-    setTimeout(() => {
-      const dom = document.querySelector("#Gradient2");
-      if (dom) {
-        dom.innerHTML = `
-        <stop offset="0%" stop-color="${palette.primary.main}" />
-        <stop offset="80%" stop-color="${palette.primary.dark}" />
-        <stop offset="100%" stop-color="${palette.primary.dark}" />
+    const timer = window.setTimeout(() => {
+      const gradientDom = document.querySelector("#Gradient2");
+      if (gradientDom) {
+        gradientDom.innerHTML = `
+        <stop offset="0%" stop-color="${palettePrimary.main}" />
+        <stop offset="80%" stop-color="${palettePrimary.dark}" />
+        <stop offset="100%" stop-color="${palettePrimary.dark}" />
         `;
       }
     }, 0);
 
-    return muiTheme;
-  }, [
-    mode,
-    theme_setting,
-    i18n.language,
-    userBackgroundImage,
-    hasUserBackground,
-  ]);
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [theme]);
 
   return { theme };
 };

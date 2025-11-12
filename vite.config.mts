@@ -2,6 +2,7 @@ import path from "node:path";
 
 import legacy from "@vitejs/plugin-legacy";
 import react from "@vitejs/plugin-react-swc";
+import UnoCSS from "unocss/vite";
 import monacoEditorPlugin, {
   type IMonacoEditorOpts,
 } from "vite-plugin-monaco-editor-esm";
@@ -16,6 +17,7 @@ export default defineConfig({
   plugins: [
     svgr(),
     react(),
+    UnoCSS(),
     legacy({
       targets: ["edge>=109", "safari>=13"],
       renderLegacyChunks: false,

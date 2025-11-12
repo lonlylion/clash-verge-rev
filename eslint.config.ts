@@ -46,6 +46,7 @@ export default defineConfig([
           project: "./tsconfig.json",
         }),
       ],
+      "import-x/core-modules": ["virtual:uno.css"],
     },
 
     rules: {
