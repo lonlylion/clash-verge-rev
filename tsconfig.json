@@ -22,6 +22,7 @@
       "@ui": ["src/ui/index.ts"],
       "@ui/*": ["src/ui/*"],
       "@shared/*": ["src/shared/*"],
+      "@widgets": ["src/widgets/index.ts"],
       "@widgets/*": ["src/widgets/*"],
       "@features/*": ["src/features/*"],
       "@root/*": ["./*"]

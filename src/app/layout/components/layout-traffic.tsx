@@ -7,12 +7,12 @@ import { Box, Typography } from "@mui/material";
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import { LightweightTrafficErrorBoundary } from "@/components/common/traffic-error-boundary";
 import { useMemoryData } from "@/hooks/use-memory-data";
 import { useTrafficData } from "@/hooks/use-traffic-data";
 import { useVerge } from "@/hooks/use-verge";
 import { useVisibility } from "@/hooks/use-visibility";
 import parseTraffic from "@/utils/parse-traffic";
+import { LightweightTrafficErrorBoundary } from "@widgets/traffic";
 
 import { TrafficGraph, type TrafficRef } from "./traffic-graph";
 
