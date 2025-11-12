@@ -3,7 +3,7 @@ import { Box, ButtonGroup, IconButton, Grid } from "@mui/material";
 import { useLockFn } from "ahooks";
 import { useTranslation } from "react-i18next";
 
-import { BasePage } from "@/components/base";
+import { Page } from "@/components/ui";
 import SettingClash from "@/features/settings/components/setting-clash";
 import SettingSystem from "@/features/settings/components/setting-system";
 import SettingVergeAdvanced from "@/features/settings/components/setting-verge-advanced";
@@ -35,7 +35,7 @@ const SettingPage = () => {
   const isDark = mode === "light" ? false : true;
 
   return (
-    <BasePage
+    <Page
       title={t("settings.page.title")}
       header={
         <ButtonGroup variant="contained" aria-label="Basic button group">
@@ -107,7 +107,7 @@ const SettingPage = () => {
           </Box>
         </Grid>
       </Grid>
-    </BasePage>
+    </Page>
   );
 };
 

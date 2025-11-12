@@ -7,9 +7,8 @@ import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
-import { BaseEmpty, BasePage } from "@/components/base";
-import { SearchBox } from "@/components/ui/search-box";
-import { SearchState } from "@/components/ui/search-box";
+import { BaseEmpty } from "@/components/base";
+import { Page, SearchBox, type SearchState } from "@/components/ui";
 import {
   Select,
   SelectContent,
@@ -64,7 +63,7 @@ const LogPage = () => {
   };
 
   return (
-    <BasePage
+    <Page
       full
       title={t("logs.page.title")}
       contentStyle={{
@@ -163,7 +162,7 @@ const LogPage = () => {
       ) : (
         <BaseEmpty />
       )}
-    </BasePage>
+    </Page>
   );
 };
 

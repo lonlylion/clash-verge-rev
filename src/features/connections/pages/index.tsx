@@ -11,8 +11,8 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
-import { BaseEmpty, BasePage } from "@/components/base";
-import { SearchBox } from "@/components/ui/search-box";
+import { BaseEmpty } from "@/components/base";
+import { Page, SearchBox } from "@/components/ui";
 import {
   Select,
   SelectContent,
@@ -158,7 +158,7 @@ const ConnectionsPage = () => {
   const hasTableData = filterConn.length > 0;
 
   return (
-    <BasePage
+    <Page
       full
       title={
         <span style={{ whiteSpace: "nowrap" }}>
@@ -295,7 +295,7 @@ const ConnectionsPage = () => {
         />
       )}
       <ConnectionDetail ref={detailRef} />
-    </BasePage>
+    </Page>
   );
 };
 

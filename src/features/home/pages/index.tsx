@@ -25,7 +25,7 @@ import { useLockFn } from "ahooks";
 import { Suspense, lazy, useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BasePage } from "@/components/base";
+import { Page } from "@/components/ui";
 import { ClashModeCard } from "@/features/home/components/clash-mode-card";
 import { CurrentProxyCard } from "@/features/home/components/current-proxy-card";
 import { EnhancedCard } from "@/features/home/components/enhanced-card";
@@ -363,7 +363,7 @@ const HomePage = () => {
     [effectiveHomeCards, settingsOpen],
   );
   return (
-    <BasePage
+    <Page
       title={t("home.page.title")}
       contentStyle={{ padding: 2 }}
       header={
@@ -404,7 +404,7 @@ const HomePage = () => {
         homeCards={effectiveHomeCards}
         onSave={handleSaveSettings}
       />
-    </BasePage>
+    </Page>
   );
 };
 

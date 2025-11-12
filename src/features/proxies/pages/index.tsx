@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import useSWR from "swr";
 import { closeAllConnections, getBaseConfig } from "tauri-plugin-mihomo-api";
 
-import { BasePage } from "@/components/base";
+import { Page } from "@/components/ui";
 import { ProxyGroups } from "@/features/proxies/components/groups/proxy-groups";
 import { ProviderButton } from "@/features/proxies/components/provider-button";
 import { useVerge } from "@/hooks/use-verge";
@@ -138,7 +138,7 @@ const ProxyPage = () => {
   }, [normalizedMode, onChangeMode]);
 
   return (
-    <BasePage
+    <Page
       full
       contentStyle={{ height: "101.5%" }}
       title={
@@ -186,7 +186,7 @@ const ProxyPage = () => {
         isChainMode={isChainMode}
         chainConfigData={chainConfigData}
       />
-    </BasePage>
+    </Page>
   );
 };
 

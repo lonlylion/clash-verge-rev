@@ -24,7 +24,8 @@ import { useLockFn } from "ahooks";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { BaseEmpty, BasePage } from "@/components/base";
+import { BaseEmpty } from "@/components/base";
+import { Page } from "@/components/ui";
 import { showNotice } from "@/services/noticeService";
 
 interface UnlockItem {
@@ -267,7 +268,7 @@ const UnlockPage = () => {
   const isDark = theme.palette.mode === "dark";
 
   return (
-    <BasePage
+    <Page
       title={t("tests.unlock.page.title")}
       header={
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
@@ -431,7 +432,7 @@ const UnlockPage = () => {
           ))}
         </Grid>
       )}
-    </BasePage>
+    </Page>
   );
 };
 

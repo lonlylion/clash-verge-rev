@@ -37,8 +37,8 @@ import { useLocation } from "react-router";
 import useSWR, { mutate } from "swr";
 import { closeAllConnections } from "tauri-plugin-mihomo-api";
 
-import { BasePage, DialogRef } from "@/components/base";
-import { Input } from "@/components/ui/input";
+import { DialogRef } from "@/components/base";
+import { Input, Page } from "@/components/ui";
 import { ProfileItem } from "@/features/profiles/components/profile-item";
 import { ProfileMore } from "@/features/profiles/components/profile-more";
 import {
@@ -803,7 +803,7 @@ const ProfilePage = () => {
   }, []);
 
   return (
-    <BasePage
+    <Page
       full
       title={t("profiles.page.title")}
       contentStyle={{ height: "100%" }}
@@ -1082,7 +1082,7 @@ const ProfilePage = () => {
         }}
       />
       <ConfigViewer ref={configRef} />
-    </BasePage>
+    </Page>
   );
 };
 

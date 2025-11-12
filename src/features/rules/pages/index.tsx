@@ -5,8 +5,8 @@ import { Virtuoso, VirtuosoHandle } from "react-virtuoso";
 
 import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
-import { BaseEmpty, BasePage } from "@/components/base";
-import { SearchBox } from "@/components/ui/search-box";
+import { BaseEmpty } from "@/components/base";
+import { Page, SearchBox } from "@/components/ui";
 import { ProviderButton } from "@/features/rules/components/provider-button";
 import RuleItem from "@/features/rules/components/rule-item";
 import { useVisibility } from "@/hooks/use-visibility";
@@ -46,7 +46,7 @@ const RulesPage = () => {
   };
 
   return (
-    <BasePage
+    <Page
       full
       title={t("rules.page.title")}
       contentStyle={{
@@ -95,7 +95,7 @@ const RulesPage = () => {
       ) : (
         <BaseEmpty />
       )}
-    </BasePage>
+    </Page>
   );
 };
 
