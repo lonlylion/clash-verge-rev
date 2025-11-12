@@ -18,13 +18,13 @@ import RulesSvg from "@/assets/image/itemicon/rules.svg?react";
 import SettingsSvg from "@/assets/image/itemicon/settings.svg?react";
 import UnlockSvg from "@/assets/image/itemicon/unlock.svg?react";
 import ConnectionsPage from "@/features/connections/pages";
+import HomePage from "@/features/home/pages";
 import LogsPage from "@/features/logs/pages";
 import ProfilesPage from "@/features/profiles/pages";
 import ProxiesPage from "@/features/proxies/pages";
+import RulesPage from "@/features/rules/pages";
 import SettingsPage from "@/features/settings/pages";
-import HomePage from "@/pages/home";
-import RulesPage from "@/pages/rules";
-import UnlockPage from "@/pages/unlock";
+import UnlockPage from "@/features/unlock/pages";
 
 export const navItems = [
   {

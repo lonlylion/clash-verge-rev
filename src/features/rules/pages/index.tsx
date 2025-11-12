@@ -7,8 +7,8 @@ import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
 import { BaseEmpty, BasePage } from "@/components/base";
 import { BaseSearchBox } from "@/components/base/base-search-box";
-import { ProviderButton } from "@/components/rule/provider-button";
-import RuleItem from "@/components/rule/rule-item";
+import { ProviderButton } from "@/features/rules/components/provider-button";
+import RuleItem from "@/features/rules/components/rule-item";
 import { useVisibility } from "@/hooks/use-visibility";
 
 const RulesPage = () => {

@@ -12,7 +12,7 @@ import { useLockFn } from "ahooks";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { EditorViewer } from "@/features/profiles/components/profile/editor-viewer";
+import { EditorViewer } from "@/features/profiles/components/editor-viewer";
 import { viewProfile, readProfileFile, saveProfileFile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 

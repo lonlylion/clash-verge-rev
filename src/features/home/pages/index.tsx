@@ -26,33 +26,33 @@ import { Suspense, lazy, useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { BasePage } from "@/components/base";
-import { ClashModeCard } from "@/components/home/clash-mode-card";
-import { CurrentProxyCard } from "@/components/home/current-proxy-card";
-import { EnhancedCard } from "@/components/home/enhanced-card";
-import { EnhancedTrafficStats } from "@/components/home/enhanced-traffic-stats";
-import { HomeProfileCard } from "@/components/home/home-profile-card";
-import { ProxyTunCard } from "@/components/home/proxy-tun-card";
+import { ClashModeCard } from "@/features/home/components/clash-mode-card";
+import { CurrentProxyCard } from "@/features/home/components/current-proxy-card";
+import { EnhancedCard } from "@/features/home/components/enhanced-card";
+import { EnhancedTrafficStats } from "@/features/home/components/enhanced-traffic-stats";
+import { HomeProfileCard } from "@/features/home/components/home-profile-card";
+import { ProxyTunCard } from "@/features/home/components/proxy-tun-card";
 import { useProfiles } from "@/hooks/use-profiles";
 import { useVerge } from "@/hooks/use-verge";
 import { entry_lightweight_mode, openWebUrl } from "@/services/cmds";
 
 const LazyTestCard = lazy(() =>
-  import("@/components/home/test-card").then((module) => ({
+  import("@/features/home/components/test-card").then((module) => ({
     default: module.TestCard,
   })),
 );
 const LazyIpInfoCard = lazy(() =>
-  import("@/components/home/ip-info-card").then((module) => ({
+  import("@/features/home/components/ip-info-card").then((module) => ({
     default: module.IpInfoCard,
   })),
 );
 const LazyClashInfoCard = lazy(() =>
-  import("@/components/home/clash-info-card").then((module) => ({
+  import("@/features/home/components/clash-info-card").then((module) => ({
     default: module.ClashInfoCard,
   })),
 );
 const LazySystemInfoCard = lazy(() =>
-  import("@/components/home/system-info-card").then((module) => ({
+  import("@/features/home/components/system-info-card").then((module) => ({
     default: module.SystemInfoCard,
   })),
 );

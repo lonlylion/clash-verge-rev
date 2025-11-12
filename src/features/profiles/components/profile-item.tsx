@@ -23,10 +23,10 @@ import { useEffect, useReducer, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { mutate } from "swr";
 
-import { ConfirmViewer } from "@/features/profiles/components/profile/confirm-viewer";
-import { EditorViewer } from "@/features/profiles/components/profile/editor-viewer";
-import { GroupsEditorViewer } from "@/features/profiles/components/profile/groups-editor-viewer";
-import { RulesEditorViewer } from "@/features/profiles/components/profile/rules-editor-viewer";
+import { ConfirmViewer } from "@/features/profiles/components/confirm-viewer";
+import { EditorViewer } from "@/features/profiles/components/editor-viewer";
+import { GroupsEditorViewer } from "@/features/profiles/components/groups-editor-viewer";
+import { RulesEditorViewer } from "@/features/profiles/components/rules-editor-viewer";
 import {
   viewProfile,
   readProfileFile,

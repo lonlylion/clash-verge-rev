@@ -41,7 +41,7 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso } from "react-virtuoso";
 
 import { BaseSearchBox } from "@/components/base/base-search-box";
-import { ProxyItem } from "@/features/profiles/components/profile/proxy-item";
+import { ProxyItem } from "@/features/profiles/components/proxy-item";
 import { readProfileFile, saveProfileFile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { useThemeMode } from "@/services/states";

@@ -17,7 +17,7 @@ import {
 import { useState, useMemo, memo, FC } from "react";
 import { useTranslation } from "react-i18next";
 
-import ProxyControlSwitches from "@/components/shared/ProxyControlSwitches";
+import ProxyControlSwitches from "@/features/settings/components/proxy-control-switches";
 import { useSystemProxyState } from "@/hooks/use-system-proxy-state";
 import { useSystemState } from "@/hooks/use-system-state";
 import { useVerge } from "@/hooks/use-verge";

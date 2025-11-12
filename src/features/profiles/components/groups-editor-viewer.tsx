@@ -50,7 +50,7 @@ import { Virtuoso } from "react-virtuoso";
 
 import { Switch } from "@/components/base";
 import { BaseSearchBox } from "@/components/base/base-search-box";
-import { GroupItem } from "@/features/profiles/components/profile/group-item";
+import { GroupItem } from "@/features/profiles/components/group-item";
 import {
   getNetworkInterfaces,
   readProfileFile,

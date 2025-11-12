@@ -44,7 +44,7 @@ import { Virtuoso } from "react-virtuoso";
 
 import { Switch } from "@/components/base";
 import { BaseSearchBox } from "@/components/base/base-search-box";
-import { RuleItem } from "@/features/profiles/components/profile/rule-item";
+import { RuleItem } from "@/features/profiles/components/rule-item";
 import { readProfileFile, saveProfileFile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { useThemeMode } from "@/services/states";

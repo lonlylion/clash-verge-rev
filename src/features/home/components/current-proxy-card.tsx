@@ -34,7 +34,7 @@ import { useNavigate } from "react-router";
 import { delayGroup, healthcheckProxyProvider } from "tauri-plugin-mihomo-api";
 
 import { useAppData } from "@/app/providers/app-data-context";
-import { EnhancedCard } from "@/components/home/enhanced-card";
+import { EnhancedCard } from "@/features/home/components/enhanced-card";
 import { useProfiles } from "@/hooks/use-profiles";
 import { useProxySelection } from "@/hooks/use-proxy-selection";
 import { useVerge } from "@/hooks/use-verge";
