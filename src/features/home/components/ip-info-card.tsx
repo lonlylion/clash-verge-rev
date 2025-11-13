@@ -9,8 +9,7 @@ import { memo, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { getIpInfo } from "@/services/api";
-
-import { EnhancedCard } from "./enhanced-card";
+import { EnhancedCard } from "@ui/legacy-mui";
 
 // 定义刷新时间（秒）
 const IP_REFRESH_SECONDS = 300;

@@ -15,7 +15,6 @@ import { useTranslation } from "react-i18next";
 import { Virtuoso, type VirtuosoHandle } from "react-virtuoso";
 import { delayGroup, healthcheckProxyProvider } from "tauri-plugin-mihomo-api";
 
-import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
 import { ProxyChain } from "@/features/proxies/components/groups/proxy-chain";
 import {
@@ -29,6 +28,7 @@ import { useVerge } from "@/hooks/use-verge";
 import { updateProxyChainConfigInRuntime } from "@/services/cmds";
 import delayManager from "@/services/delay";
 import { EmptyState } from "@ui";
+import { ScrollTopButton } from "@widgets/layout";
 
 interface Props {
   mode: string;

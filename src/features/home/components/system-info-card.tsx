@@ -27,8 +27,7 @@ import { getSystemInfo } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import { checkUpdateSafe as checkUpdate } from "@/services/update";
 import { version as appVersion } from "@root/package.json";
-
-import { EnhancedCard } from "./enhanced-card";
+import { EnhancedCard } from "@ui/legacy-mui";
 
 interface SystemState {
   osInfo: string;

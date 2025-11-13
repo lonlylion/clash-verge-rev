@@ -27,14 +27,14 @@ import { useTranslation } from "react-i18next";
 
 import { ClashModeCard } from "@/features/home/components/clash-mode-card";
 import { CurrentProxyCard } from "@/features/home/components/current-proxy-card";
-import { EnhancedCard } from "@/features/home/components/enhanced-card";
-import { EnhancedTrafficStats } from "@/features/home/components/enhanced-traffic-stats";
 import { HomeProfileCard } from "@/features/home/components/home-profile-card";
 import { ProxyTunCard } from "@/features/home/components/proxy-tun-card";
 import { useProfiles } from "@/hooks/use-profiles";
 import { useVerge } from "@/hooks/use-verge";
 import { entry_lightweight_mode, openWebUrl } from "@/services/cmds";
 import { Page } from "@ui";
+import { EnhancedCard } from "@ui/legacy-mui";
+import { EnhancedTrafficStats } from "@widgets/traffic";
 
 const LazyTestCard = lazy(() =>
   import("@/features/home/components/test-card").then((module) => ({

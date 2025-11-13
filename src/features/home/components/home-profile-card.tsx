@@ -28,8 +28,7 @@ import { useAppData } from "@/app/providers/app-data-context";
 import { openWebUrl, updateProfile } from "@/services/cmds";
 import { showNotice } from "@/services/noticeService";
 import parseTraffic from "@/utils/parse-traffic";
-
-import { EnhancedCard } from "./enhanced-card";
+import { EnhancedCard } from "@ui/legacy-mui";
 
 // 定义旋转动画
 const round = keyframes`

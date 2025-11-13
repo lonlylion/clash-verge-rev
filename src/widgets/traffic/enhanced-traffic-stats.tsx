@@ -24,12 +24,12 @@ import { useTrafficData } from "@/hooks/use-traffic-data";
 import { useVerge } from "@/hooks/use-verge";
 import { useVisibility } from "@/hooks/use-visibility";
 import parseTraffic from "@/utils/parse-traffic";
-import { TrafficErrorBoundary } from "@widgets/traffic";
 
 import {
   EnhancedCanvasTrafficGraph,
   type EnhancedCanvasTrafficGraphRef,
 } from "./enhanced-canvas-traffic-graph";
+import { TrafficErrorBoundary } from "./traffic-error-boundary";
 
 interface StatCardProps {
   icon: ReactNode;

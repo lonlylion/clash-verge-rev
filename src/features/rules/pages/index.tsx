@@ -3,13 +3,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Virtuoso, VirtuosoHandle } from "react-virtuoso";
 
-import { ScrollTopButton } from "@/app/layout/components/scroll-top-button";
 import { useAppData } from "@/app/providers/app-data-context";
 import { ProviderButton } from "@/features/rules/components/provider-button";
 import RuleItem from "@/features/rules/components/rule-item";
 import { useVisibility } from "@/hooks/use-visibility";
 import { Page, SearchBox } from "@ui";
 import { EmptyState } from "@ui";
+import { ScrollTopButton } from "@widgets/layout";
 
 const RulesPage = () => {
   const { t } = useTranslation();

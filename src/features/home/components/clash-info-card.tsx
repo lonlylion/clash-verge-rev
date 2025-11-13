@@ -5,8 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import { useAppData } from "@/app/providers/app-data-context";
 import { useClash } from "@/hooks/use-clash";
-
-import { EnhancedCard } from "./enhanced-card";
+import { EnhancedCard } from "@ui/legacy-mui";
 
 // 将毫秒转换为时:分:秒格式的函数
 const formatUptime = (uptimeMs: number) => {

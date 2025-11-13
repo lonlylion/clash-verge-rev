@@ -34,11 +34,11 @@ import { useNavigate } from "react-router";
 import { delayGroup, healthcheckProxyProvider } from "tauri-plugin-mihomo-api";
 
 import { useAppData } from "@/app/providers/app-data-context";
-import { EnhancedCard } from "@/features/home/components/enhanced-card";
 import { useProfiles } from "@/hooks/use-profiles";
 import { useProxySelection } from "@/hooks/use-proxy-selection";
 import { useVerge } from "@/hooks/use-verge";
 import delayManager from "@/services/delay";
+import { EnhancedCard } from "@ui/legacy-mui";
 
 // 本地存储的键名
 const STORAGE_KEY_GROUP = "clash-verge-selected-proxy-group";
