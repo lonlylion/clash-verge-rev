@@ -6,7 +6,6 @@ export * from "./fieldset";
 export * from "./input";
 export * from "./label";
 export * from "./loader-dots";
-export * from "./notification-stack";
 export * from "./select";
 export * from "./spinner";
 export * from "./switch";

@@ -13,8 +13,7 @@ import { useVerge } from "@/hooks/use-verge";
 import { useVisibility } from "@/hooks/use-visibility";
 import parseTraffic from "@/utils/parse-traffic";
 import { LightweightTrafficErrorBoundary } from "@widgets/traffic";
-
-import { TrafficGraph, type TrafficRef } from "./traffic-graph";
+import { TrafficGraph, type TrafficRef } from "@widgets/traffic";
 
 // setup the traffic
 export const LayoutTraffic = () => {

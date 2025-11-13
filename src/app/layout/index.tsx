@@ -55,7 +55,8 @@ import { useVerge } from "@/hooks/use-verge";
 import { useWindowDecorations } from "@/hooks/use-window";
 import { useThemeMode } from "@/services/states";
 import getSystem from "@/utils/get-system";
-import { ErrorBoundary, NotificationStack } from "@ui";
+import { ErrorBoundary } from "@ui";
+import { NotificationStack } from "@widgets/notifications";
 import { WindowControls } from "@widgets/window";
 
 import "dayjs/locale/ru";
